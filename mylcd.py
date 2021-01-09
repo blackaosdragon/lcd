@@ -33,7 +33,7 @@ sleep(1)
 mylcd.lcd_clear()
 
 mylcd.lcd_load_custom_chars(signalData)
-mylcd.lcd_display_string_pos(unichr(0),1,18)
+mylcd.lcd_display_string(unichr(0),1,18)
 #mylcd.lcd_display_string("")
 
 #********************
