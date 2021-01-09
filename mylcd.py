@@ -11,7 +11,7 @@ mylcd.lcd_display_string("...",3,9)
 
 sleep(5)
 
-mylcd.clear()
+mylcd.lcd_clear()
 
 mylcd.lcd_load_custom_chars(signalData)
 mylcd.lcd_write(0x80);
