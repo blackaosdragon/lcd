@@ -9,9 +9,14 @@ waitData = [  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x15]
 mylcd.lcd_display_string("Iniciando ",2,6)
 mylcd.lcd_load_custom_chars("...",3,9)
 
-
-
 sleep(5)
-********************
-******iniciando*****
-********...*********
+
+mylcd.clear()
+
+mylcd.lcd_load_custom_chars(signalData)
+mylcd.lcd_write(0x80);
+mylcd.lcd_write_char(0)
+
+#********************
+#******iniciando*****
+#********...*********
