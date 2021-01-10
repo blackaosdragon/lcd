@@ -135,6 +135,7 @@ def main():
     cells=[[]]
     parsed_cells=[]
 
+
     proc = subprocess.Popen(["iwlist", interface, "scan"],stdout=subprocess.PIPE, universal_newlines=True)
     out, err = proc.communicate()
 
@@ -153,5 +154,7 @@ def main():
     sort_cells(parsed_cells)
 
     print_cells(parsed_cells)
+    print("amos a ver")
+
 
 main()
