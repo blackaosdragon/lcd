@@ -77,8 +77,10 @@ def print_cells(cells):
         table.append(cell_properties)
     print_table(table)
 
-def intercambiar():
-    data = 0
+def intercambiar(cells,data):
+    info = 0
+    print(data)
+    print(cells)
 
 def main():
     """Pretty prints the output of iwlist scan into a table"""
@@ -104,6 +106,8 @@ def main():
     sort_cells(parsed_cells)
 
     print_cells(parsed_cells)
+
+    intercambiar(parse_cell,cells)
     
 
 main()
