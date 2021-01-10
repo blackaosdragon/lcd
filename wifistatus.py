@@ -17,7 +17,7 @@ def get_calidad(cell):
     quality = matching_line(cell,"Quality=").split()[0].split('/')
     #quality = matching_line(cell,"Quality=")     .split()[0].split('/')
     valor = int(round(float(quality[0]) / float(quality[1]) * 100))
-    lcd.lcd_display_string(unichr(0), 1, 16)
+    lcd.lcd_display_string(unichr(0), 1, 15)
     lcd.lcd_display_string("%d"%valor,1,17)
     lcd.lcd_display_string("%",1,19)
     

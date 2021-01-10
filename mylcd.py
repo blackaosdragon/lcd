@@ -1,4 +1,5 @@
-
+import textwrap
+import time
 import I2C_LCD_driver 
 from time import *
 
