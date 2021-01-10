@@ -11,6 +11,7 @@ def get_name(cell):
 def get_calidad(cell):
     quality = matching_line(cell,"Quality=").split()[0].split('/')
     #quality = matching_line(cell,"Quality=")     .split()[0].split('/')
+    print(str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + "%")
     return str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + "%"
 
 rules = {
