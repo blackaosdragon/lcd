@@ -13,7 +13,7 @@ def get_calidad(cell):
 
 rules = {
     "Name": get_name,
-    "Calidad": get_calidad
+    "Quality": get_calidad
 }
 
 def sort_cells(cells):
