@@ -7,7 +7,7 @@ def get_name(cell):
     return matching_line(cell,"ESIID")[1:-1]
 
 def get_calidad(cell):
-    quality = matching_line(cell,"Intensidad = ").split()[0].split('/')
+    quality = matching_line(cell,"Quality=").split()[0].split('/')
     #quality = matching_line(cell,"Quality=")     .split()[0].split('/')
     return str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + "%"
 
