@@ -1,5 +1,7 @@
 import sys 
 import subprocess
+import I2C_LCD_driver 
+from time import *
 
 interface = "wlan0"
 
@@ -60,7 +62,7 @@ def print_table(table):
     for line in table:
         justified_line=[]
         for i,el in enumerate(line):
-            justified_line.append(el.ljust(widths[i]+2))
+            print(justified_line.append(el.ljust(widths[i]+2)))
         justified_table.append(justified_line)
     
     for line in justified_table:
