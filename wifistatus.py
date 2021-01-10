@@ -4,14 +4,20 @@ import I2C_LCD_driver
 from time import *
 
 interface = "wlan0"
+lcd = I2C_LCD_driver.lcd()
+signalData = [
+    [0x00, 0x01, 0x01, 0x03, 0x03, 0x07, 0x0F, 0x1F]
+]
 
 def get_name(cell):
     return matching_line(cell,"ESSID")[1:-1]
 
 def get_calidad(cell):
+    lcd.lcd_load_custom_chars(signalData)
     quality = matching_line(cell,"Quality=").split()[0].split('/')
     #quality = matching_line(cell,"Quality=")     .split()[0].split('/')
-    print(str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + "%")
+    lcd.lcd_display_string(f"{str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + "%"}",1,13)
+    lcd.lcd_display_string(unichr(0), 1, 18)
     return str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + "%"
 
 rules = {
