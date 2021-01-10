@@ -75,12 +75,13 @@ def print_cells(cells):
         cell_properties=[]
         for column in columns:
             cell_properties.append(cell[column])
+            print(cell_properties.append(cell[column]))
         table.append(cell_properties)
     print_table(table)
 
 def intercambiar(data):
     info = 0
-    print(data)
+    print()
 
 
 
