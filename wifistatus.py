@@ -94,6 +94,7 @@ def main():
         cells[-1].append(line.rstrip())
 
     cells=cells[1:]
+    print('aiñ xDD')
 
     for cell in cells:
         parsed_cells.append(parse_cell(cell))
@@ -101,6 +102,6 @@ def main():
     sort_cells(parsed_cells)
 
     print_cells(parsed_cells)
-    print("aiñ xDD")
+    
 
 main()
