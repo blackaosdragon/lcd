@@ -6,7 +6,10 @@ from time import *
 interface = "wlan0"
 lcd = I2C_LCD_driver.lcd()
 signalData = [
-    [0x00, 0x01, 0x01, 0x03, 0x03, 0x07, 0x0F, 0x1F]
+    [0x01,  0x01,  0x01,  0x03,  0x03, 0x07, 0x0F, 0x1F]
+    [0x00, 0x01, 0x01, 0x03, 0x03, 0x07, 0x0F, 0x1F],
+    [0x00,  0x00,  0x00,  0x00,  0x02,  0x02,  0x06,  0x0E],
+    [0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x04,  0x0C]
 ]
 
 def get_name(cell):
@@ -17,7 +20,17 @@ def get_calidad(cell):
     quality = matching_line(cell,"Quality=").split()[0].split('/')
     #quality = matching_line(cell,"Quality=")     .split()[0].split('/')
     valor = int(round(float(quality[0]) / float(quality[1]) * 100))
-    lcd.lcd_display_string(unichr(0), 1, 15)
+    
+    if valor>=90:
+        lcd.lcd_display_string(unichr(0), 1, 15)
+        elif valor>=70 and valor<90 :
+            lcd.lcd_display_string(unichr(1), 1, 15)
+            elif valor>=30 and valor<70:
+                lcd.lcd_display_string(unichr(2), 1, 15)
+                elif valor<30:
+                    lcd.lcd_display_string(unichr(2), 1, 15)
+                    
+            
     lcd.lcd_display_string("%d"%valor,1,17)
     lcd.lcd_display_string("%",1,19)
     
