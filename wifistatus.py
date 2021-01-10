@@ -16,7 +16,8 @@ def get_calidad(cell):
     lcd.lcd_load_custom_chars(signalData)
     quality = matching_line(cell,"Quality=").split()[0].split('/')
     #quality = matching_line(cell,"Quality=")     .split()[0].split('/')
-    lcd.lcd_display_string(f"{str(int(round(float(quality[0]) / float(quality[1]) * 100)).rjust(3))}",1,13)
+    valor = (int(round(float(quality[0]) / float(quality[1]) * 100)).rjust(3))
+    #lcd.lcd_display_string(f"{str}",1,13)
     lcd.lcd_display_string(unichr(0), 1, 18)
     return str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + "%"
 
