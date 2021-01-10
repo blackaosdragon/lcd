@@ -154,7 +154,7 @@ def main():
     sort_cells(parsed_cells)
 
     print_cells(parsed_cells)
-    print("amos a ver")
+    
 
 
 main()
