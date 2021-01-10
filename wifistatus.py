@@ -77,6 +77,8 @@ def print_cells(cells):
         table.append(cell_properties)
     print_table(table)
 
+def intercambiar():
+    
 def main():
     """Pretty prints the output of iwlist scan into a table"""
     
@@ -94,7 +96,6 @@ def main():
         cells[-1].append(line.rstrip())
 
     cells=cells[1:]
-    print('aiñ xDD')
 
     for cell in cells:
         parsed_cells.append(parse_cell(cell))

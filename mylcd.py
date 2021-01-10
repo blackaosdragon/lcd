@@ -9,7 +9,9 @@ signalData = [
     [0x01, 0x01, 0x03, 0x03, 0x07, 0x07, 0x0F, 0x1F]
 ]
 
-print("Khe?")
+#intentalo = wifistatus
+
+#data=intentalo.main()
 
 mylcd.lcd_display_string("Iniciando ",2,6)
 sleep(1)
