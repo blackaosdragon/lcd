@@ -1,4 +1,4 @@
-import wifistatus
+
 import I2C_LCD_driver 
 from time import *
 
@@ -48,3 +48,4 @@ mylcd.lcd_clear()
 #********************
 #******iniciando*****
 #********...*********
+import wifistatus
