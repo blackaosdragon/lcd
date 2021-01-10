@@ -1,27 +1,79 @@
-import sys 
+#!/usr/bin/env python
+#
+# iwlistparse.py
+# Hugo Chargois - 17 jan. 2010 - v.0.1
+# Parses the output of iwlist scan into a table
+
+import sys
 import subprocess
 
 interface = "wlan0"
 
+# You can add or change the functions to parse the properties of each AP (cell)
+# below. They take one argument, the bunch of text describing one cell in iwlist
+# scan and return a property of that cell.
+
 def get_name(cell):
-    return matching_line(cell,"ESIID")[1:-1]
+    return matching_line(cell,"ESSID:")[1:-1]
 
-def get_calidad(cell):
-    calidad = matching_line(cell,"Intensidad = ").split()[0].split('/')
-    #quality = matching_line(cell,"Quality=")     .split()[0].split('/')
-    return str(int(round(float(calidad[0]) / float(calidad[1]) * 100))).rjust(3) + "%"
+def get_quality(cell):
+    calidad = matching_line(cell,"Calidad =").split()[0].split('/')
+    return str(int(round(float(calidad[0]) / float(quality[1]) * 100))).rjust(3) + " %"
 
-rules = {
-    "Name": get_name,
-    "Calidad": get_calidad
-}
+def get_channel(cell):
+    return matching_line(cell,"Channel:")
+
+def get_signal_level(cell):
+    # Signal level is on same line as Quality data so a bit of ugly
+    # hacking needed...
+    return matching_line(cell,"Quality=").split("Signal level=")[1]
+
+
+def get_encryption(cell):
+    enc=""
+    if matching_line(cell,"Encryption key:") == "off":
+        enc="Open"
+    else:
+        for line in cell:
+            matching = match(line,"IE:")
+            if matching!=None:
+                wpa=match(matching,"WPA Version ")
+                if wpa!=None:
+                    enc="WPA v."+wpa
+        if enc=="":
+            enc="WEP"
+    return enc
+
+def get_address(cell):
+    return matching_line(cell,"Address: ")
+
+# Here's a dictionary of rules that will be applied to the description of each
+# cell. The key will be the name of the column in the table. The value is a
+# function defined above.
+
+rules={"Name":get_name,
+       "Quality":get_quality,
+       "Channel":get_channel,
+       "Encryption":get_encryption,
+       "Address":get_address,
+       "Signal":get_signal_level
+       }
+
+# Here you can choose the way of sorting the table. sortby should be a key of
+# the dictionary rules.
 
 def sort_cells(cells):
-    sortby = "Calidad"
-    reverse = true
-    cells.sort(None, lambda el:el[sortby],reverse)
+    sortby = "Quality"
+    reverse = True
+    cells.sort(None, lambda el:el[sortby], reverse)
 
-columns = ["Calidad","Name"]
+# You can choose which columns to display here, and most importantly in what order. Of
+# course, they must exist as keys in the dict rules.
+
+columns=["Name","Address","Quality","Signal", "Channel","Encryption"]
+
+
+
 
 # Below here goes the boring stuff. You shouldn't have to edit anything below
 # this point
