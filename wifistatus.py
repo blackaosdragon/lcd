@@ -70,6 +70,7 @@ def print_table(table):
 
 def print_cells(cells):
     table=[columns]
+    print(cells)
     for cell in cells:
         cell_properties=[]
         for column in columns:
