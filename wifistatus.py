@@ -17,7 +17,7 @@ rules = {
 }
 
 def sort_cells(cells):
-    sortby = "Calidad"
+    sortby = "Quality"
     reverse = true
     cells.sort(None, lambda el:el[sortby],reverse)
 
