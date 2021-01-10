@@ -74,7 +74,7 @@ def print_cells(cells):
     for cell in cells:
         cell_properties=[]
         for column in columns:
-            cell_properties.append(cell[column])
+            #cell_properties.append(cell[column])
             print(cell_properties.append(cell[column]))
         table.append(cell_properties)
     print_table(table)
