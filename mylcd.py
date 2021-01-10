@@ -13,6 +13,7 @@ signalData = [
 
 #data=intentalo.main()
 
+sleep(5)
 
 
 mylcd.lcd_display_string("Iniciando ",2,6)
