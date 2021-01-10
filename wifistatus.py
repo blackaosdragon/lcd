@@ -23,12 +23,14 @@ def get_calidad(cell):
     
     if valor>=90:
         lcd.lcd_display_string(unichr(0), 1, 15)
-        elif valor>=70 and valor<90 :
-            lcd.lcd_display_string(unichr(1), 1, 15)
-            elif valor>=30 and valor<70:
-                lcd.lcd_display_string(unichr(2), 1, 15)
-                elif valor<30:
-                    lcd.lcd_display_string(unichr(2), 1, 15)
+    elif valor>=70 and valor<90:
+        lcd.lcd_display_string(unichr(1), 1, 15)
+    elif valor>=30 and valor<70:
+        lcd.lcd_display_string(unichr(2), 1, 15)
+    elif valor<30:
+        lcd.lcd_display_string(unichr(2), 1, 15)
+    else:
+        print valor
                     
             
     lcd.lcd_display_string("%d"%valor,1,17)
