@@ -17,8 +17,8 @@ def get_name(cell):
     return matching_line(cell,"ESSID:")[1:-1]
 
 def get_quality(cell):
-    calidad = matching_line(cell,"Calidad =").split()[0].split('/')
-    return str(int(round(float(calidad[0]) / float(quality[1]) * 100))).rjust(3) + " %"
+    quality = matching_line(cell,"Quality=").split()[0].split('/')
+    return str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + " %"
 
 def get_channel(cell):
     return matching_line(cell,"Channel:")
