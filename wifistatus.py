@@ -24,7 +24,7 @@ def get_calidad(cell):
     if valor>=90:
         lcd.lcd_display_string(unichr(0), 1, 15)
     elif valor>=70 and valor<90:
-        lcd.lcd_display_string(unichr(3), 1, 15)
+        lcd.lcd_display_string(unichr(2), 1, 15)
     elif valor>=30 and valor<70:
         lcd.lcd_display_string(unichr(2), 1, 15)
     elif valor<30:
