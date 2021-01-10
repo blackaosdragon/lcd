@@ -16,7 +16,7 @@ signalData = [
 
 
 
-
+"""
 mylcd.lcd_display_string("Iniciando ",2,6)
 sleep(1)
 mylcd.lcd_display_string(".",3,9)
@@ -45,6 +45,7 @@ mylcd.lcd_clear()
 #mylcd.lcd_display_string("")
 #mylcd.lcd_display_string(unichr(0),1,18)
 #mylcd.lcd_display_string("")
+"""
 
 #********************
 #******iniciando*****
