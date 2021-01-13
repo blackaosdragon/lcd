@@ -21,7 +21,9 @@ def get_calidad(cell):
     #quality = matching_line(cell,"Quality=")     .split()[0].split('/')
     valor = int(round(float(quality[0]) / float(quality[1]) * 100))
     
-    if valor>=90:
+    if valor==100:
+        lcd.lcd_display_string(unichr(0), 1, 14)
+    elif valor>=90 and valor<100:
         lcd.lcd_display_string(unichr(0), 1, 15)
     elif valor>=70 and valor<90:
         lcd.lcd_display_string(unichr(0), 1, 15)
@@ -32,9 +34,12 @@ def get_calidad(cell):
     else:
         print valor
                     
-            
-    lcd.lcd_display_string("%d"%valor,1,17)
-    lcd.lcd_display_string("%",1,19)
+    if valor==100:
+        lcd.lcd_display_string("%d"%valor,1,16)
+        lcd.lcd_display_string("%",1,19)
+    else:
+        lcd.lcd_display_string("%d"%valor,1,15)
+        lcd.lcd_display_string("%",1,19)
     
     sleep(5)
     return str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + "%"
