@@ -11,6 +11,7 @@ signalData = [
     [0x00, 0x01, 0x01, 0x03, 0x03, 0x07, 0x0F, 0x1F],
     [0x01, 0x01, 0x03, 0x03, 0x07, 0x07, 0x0F, 0x1F]
 ]
+import wifistatus
 
 #intentalo = wifistatus
 
@@ -47,19 +48,19 @@ mylcd.lcd_clear()
 #mylcd.lcd_display_string("")
 #mylcd.lcd_display_string(unichr(0),1,18)
 #mylcd.lcd_display_string("")
-"""
+
 
 #********************
 #******iniciando*****
 #********...*********
-import wifistatus
+
 
 #calculando las distancias 
 #COmienza el modulo Ultrasónico
 
 #fDistancia = (iTiempo * 300 ) / 2 
 
-"""
+
 base_dir = 'sys/bus/w1/devices'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
@@ -69,10 +70,10 @@ def temp_sensor():
 
 while True:
     temperatura 
-"""
+
 #os.system('modprobe w1-gpio')
 #os.system('modprobe w1-therm')
- 
+""" 
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
