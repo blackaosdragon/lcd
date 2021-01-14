@@ -100,7 +100,7 @@ def read_temp():
 	
 while True:
     mylcd.lcd_display_string("Temp: ",3,0)
-    mylcd.lcd_display_string("%f"%read_temp(),3,6)
+    mylcd.lcd_display_string("%.2f"%read_temp(),3,6)
     #mylcd.lcd_display_string(unichr(3), 3,17)
     #mylcd.lcd_display_string("C",3,18)
 sleep(1)
