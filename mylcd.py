@@ -113,9 +113,9 @@ while True:
     #print("Minutos: ",ahora.minute)
     #print("Segundos: ",ahora.second)
     if segundo%2==0:
-        mylcd.lcd_display_string("%d"%hora,1,0)
-        mylcd.lcd_display_string(":",1,2)
-        mylcd.lcd_display_string("%d"%minuto,1,3)
+        mylcd.lcd_display_string("%d"%hora,1,1)
+        mylcd.lcd_display_string(":",1,3)
+        mylcd.lcd_display_string("%d"%minuto,1,4)
     else:
         mylcd.lcd_display_string("%d"%hora,1,0)
         mylcd.lcd_display_string(" ",1,2)

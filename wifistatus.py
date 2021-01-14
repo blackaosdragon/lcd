@@ -25,18 +25,18 @@ def get_calidad(cell):
     valor = int(round(float(quality[0]) / float(quality[1]) * 100))
     
     if valor==100:
-        lcd.lcd_display_string(unichr(0), 1, 14)
+        lcd.lcd_display_string(unichr(0), 1, 18)
     elif valor>=90 and valor<100:
-        lcd.lcd_display_string(unichr(0), 1, 15)
+        lcd.lcd_display_string(unichr(0), 1, 18)
     elif valor>=70 and valor<90:
-        lcd.lcd_display_string(unichr(0), 1, 15)
+        lcd.lcd_display_string(unichr(0), 1, 18)
     elif valor>=30 and valor<70:
-        lcd.lcd_display_string(unichr(2), 1, 15)
+        lcd.lcd_display_string(unichr(2), 1, 18)
     elif valor<30:
-        lcd.lcd_display_string(unichr(2), 1, 15)
+        lcd.lcd_display_string(unichr(2), 1, 18)
     else:
         print valor
-                    
+    """                
     if valor==100:
         lcd.lcd_display_string("%d"%valor,1,16)
         lcd.lcd_display_string("%",1,19)
@@ -45,6 +45,7 @@ def get_calidad(cell):
         lcd.lcd_display_string("%",1,19)
     
     sleep(.2)
+    """
     return str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + "%"
 
 rules = {
