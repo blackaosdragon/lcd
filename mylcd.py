@@ -1,3 +1,4 @@
+import asyncio
 import requests
 import os
 import glob
@@ -135,13 +136,14 @@ while True:
         'temperatura': temperatura
 
     }
-    try:
-        x = requests.post(url_local,data=obj,verify=False)
-        print(x.text)
-    except error:
-        print(error)
-    else:
-        print("Error, seguira")
+    async def enviar():
+        try:
+            x = requests.post(url_local,data=obj,verify=False)
+            print(x.text)
+        except:
+            print("exepcion ocurrida")
+        else:
+            print("Error, seguira")
 
     
 
