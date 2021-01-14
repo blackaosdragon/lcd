@@ -105,7 +105,10 @@ def read_temp():
 while True:
     import wifistatus
     ahora = datetime.now()
-    mylcd.lcd_display_string("%d"%ahora.hour,0,0)
+    print("Horas: ",ahora.hour)
+    print("Minutos: ",ahora.minute)
+    print("Segundos: ",ahora.second)
+    #mylcd.lcd_display_string("%d"%ahora.hour,0,0)
     
     mylcd.lcd_display_string("Temp: ",3,0)
     mylcd.lcd_display_string("%.2f"%read_temp(),3,6)
