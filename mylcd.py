@@ -5,6 +5,9 @@ import time
 import I2C_LCD_driver 
 from time import *
 
+from datetime import datetime, date, time, timedelta
+import calendar
+
 mylcd = I2C_LCD_driver.lcd()
 
 otros = [
@@ -101,7 +104,8 @@ def read_temp():
 	
 while True:
     import wifistatus
-    mylcd.lcd_display_string("%d"%time.mktime(time.localtime()).tm_hour,0,0)
+    ahora = datetime.now()
+    mylcd.lcd_display_string("%d"%ahora.hour,0,0)
     
     mylcd.lcd_display_string("Temp: ",3,0)
     mylcd.lcd_display_string("%.2f"%read_temp(),3,6)
