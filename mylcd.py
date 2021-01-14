@@ -56,7 +56,7 @@ mylcd.lcd_clear()
 
 
 #calculando las distancias 
-#COmienza el modulo Ultrasónico
+#COmienza el modulo Ultrasonico
 
 #fDistancia = (iTiempo * 300 ) / 2 
 
