@@ -13,7 +13,7 @@ signalData = [
     [0x00, 0x0C, 0x12, 0x12, 0x0C, 0x00, 0x00, 0x00]
 ]
 mylcd.lcd_load_custom_chars(signalData)
-import wifistatus
+#import wifistatus
 
 #intentalo = wifistatus
 
@@ -99,6 +99,7 @@ def read_temp():
         return temp_c
 	
 while True:
+    import wifistatus
     mylcd.lcd_display_string("Temp: ",3,0)
     mylcd.lcd_display_string("%.2f"%read_temp(),3,6)
     #mylcd.lcd_display_string(unichr(3), 3,17)

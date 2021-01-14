@@ -41,7 +41,7 @@ def get_calidad(cell):
         lcd.lcd_display_string("%d"%valor,1,15)
         lcd.lcd_display_string("%",1,19)
     
-    sleep(5)
+    sleep(.2)
     return str(int(round(float(quality[0]) / float(quality[1]) * 100))).rjust(3) + "%"
 
 rules = {
