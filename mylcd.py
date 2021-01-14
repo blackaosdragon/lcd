@@ -9,8 +9,10 @@ mylcd = I2C_LCD_driver.lcd()
 
 signalData = [
     [0x00, 0x01, 0x01, 0x03, 0x03, 0x07, 0x0F, 0x1F],
-    [0x01, 0x01, 0x03, 0x03, 0x07, 0x07, 0x0F, 0x1F]
+    [0x01, 0x01, 0x03, 0x03, 0x07, 0x07, 0x0F, 0x1F],
+    [0x00, 0x0C, 0x12, 0x12, 0x0C, 0x00, 0x00, 0x00]
 ]
+mylcd.lcd_load_custom_chars(signalData)
 import wifistatus
 
 #intentalo = wifistatus
@@ -99,5 +101,6 @@ def read_temp():
 while True:
     mylcd.lcd_display_string("Temperatura: ",3,1)
     mylcd.lcd_display_string("%d"%read_temp(),3,15)
-    mylcd.lcd_display_string("°C",3,6)
+    mylcd.lcd_display_string(unichr(3), 3, 15)
+    mylcd.lcd_display_string("C",3,16)
 	sleep(1)
