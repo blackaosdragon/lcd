@@ -7,12 +7,12 @@ from time import *
 
 mylcd = I2C_LCD_driver.lcd()
 
-signalData = [
+otros = [
     [0x00, 0x01, 0x01, 0x03, 0x03, 0x07, 0x0F, 0x1F],
     [0x01, 0x01, 0x03, 0x03, 0x07, 0x07, 0x0F, 0x1F],
     [0x00, 0x0C, 0x12, 0x12, 0x0C, 0x00, 0x00, 0x00]
 ]
-mylcd.lcd_load_custom_chars(signalData)
+
 #import wifistatus
 
 #intentalo = wifistatus
@@ -76,6 +76,7 @@ while True:
 #os.system('modprobe w1-gpio')
 #os.system('modprobe w1-therm')
 """ 
+mylcd.lcd_load_custom_chars(otros)
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
