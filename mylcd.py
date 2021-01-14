@@ -108,12 +108,12 @@ while True:
     hora = ahora.hour
     minuto = ahora.minute
     segundo = ahora.second
-    print("Horas: ",ahora.hour)
-    print("Minutos: ",ahora.minute)
-    print("Segundos: ",ahora.second)
+    #print("Horas: ",ahora.hour)
+    #print("Minutos: ",ahora.minute)
+    #print("Segundos: ",ahora.second)
     mylcd.lcd_display_string("%d"%hora,1,0)
     mylcd.lcd_display_string(":",1,2)
-    mylcd.lcd_display_string("%d"%minuto,1,0)
+    mylcd.lcd_display_string("%d"%minuto,1,3)
     
     mylcd.lcd_display_string("Temp: ",3,0)
     mylcd.lcd_display_string("%.2f"%read_temp(),3,6)
