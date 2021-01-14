@@ -30,13 +30,13 @@ def get_calidad(cell):
     if valor==100:
         lcd.lcd_display_string(unichr(0), 1, 17)
     elif valor>=90 and valor<100:
-        lcd.lcd_display_string(unichr(0), 1, 17)
+        lcd.lcd_display_string(unichr(1), 1, 17)
     elif valor>=70 and valor<90:
-        lcd.lcd_display_string(unichr(0), 1, 17)
+        lcd.lcd_display_string(unichr(2), 1, 17)
     elif valor>=30 and valor<70:
-        lcd.lcd_display_string(unichr(2), 1, 17)
+        lcd.lcd_display_string(unichr(3), 1, 17)
     elif valor<30:
-        lcd.lcd_display_string(unichr(2), 1, 17)
+        lcd.lcd_display_string(unichr(4), 1, 17)
     else:
         print valor
     """                

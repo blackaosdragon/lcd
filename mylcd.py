@@ -121,7 +121,7 @@ while True:
         mylcd.lcd_display_string(" ",1,3)
         mylcd.lcd_display_string("%d"%minuto,1,4)    
     
-    mylcd.lcd_display_string(unichr(7), 1,19)
+    mylcd.lcd_display_string(unichr(8), 1,19)
     mylcd.lcd_display_string("Temp: ",3,0)
     mylcd.lcd_display_string("%.2f"%read_temp(),3,6)
     mylcd.lcd_display_string(unichr(6), 3,11)
