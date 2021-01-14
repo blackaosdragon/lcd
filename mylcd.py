@@ -76,7 +76,7 @@ while True:
 #os.system('modprobe w1-gpio')
 #os.system('modprobe w1-therm')
 """ 
-mylcd.lcd_load_custom_chars(otros)
+
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1_slave'
@@ -101,8 +101,9 @@ def read_temp():
 	
 while True:
     import wifistatus
+    
     mylcd.lcd_display_string("Temp: ",3,0)
     mylcd.lcd_display_string("%.2f"%read_temp(),3,6)
-    mylcd.lcd_display_string(unichr(2), 3,11)
+    mylcd.lcd_display_string(unichr(4), 3,11)
     mylcd.lcd_display_string("C",3,12)
 sleep(1)
