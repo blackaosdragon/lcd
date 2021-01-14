@@ -144,7 +144,4 @@ while True:
             print("exepcion ocurrida")
         else:
             print("Error, seguira")
-
-    
-
 sleep(1)
