@@ -11,7 +11,7 @@ import calendar
 
 mylcd = I2C_LCD_driver.lcd()
 url = 'https://instrumentacionline.ddns.net/raspbi'
-url_local = 'https://instrumentacionline.ddns.net:443/raspbi'
+url_local = 'https://instrumentacionline.ddns.net:5002/raspbi'
 
 otros = [
     [0x00, 0x01, 0x01, 0x03, 0x03, 0x07, 0x0F, 0x1F],
