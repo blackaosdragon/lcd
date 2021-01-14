@@ -147,8 +147,9 @@ while True:
     """
 sleep(1)
 
-async def main():
+"""async def main():
     print "Alo"
     await asyncio.sleep(2)
     print "Polecia"
 asyncio.run(main())
+"""
