@@ -134,8 +134,8 @@ while True:
     obj = {
         'id': 3,
         'temperatura': temperatura
-
     }
+    """
     async def enviar():
         try:
             x = requests.post(url_local,data=obj,verify=False)
@@ -144,4 +144,11 @@ while True:
             print("exepcion ocurrida")
         else:
             print("Error, seguira")
+    """
 sleep(1)
+
+async def main():
+    print "Alo"
+    await asyncio.sleep(2)
+    print "Polecia"
+asyncio.run(main())
