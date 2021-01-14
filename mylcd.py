@@ -133,8 +133,9 @@ while True:
     obj = {
         'id': 3,
         'temperatura': temperatura
+
     }
-    x = requests.post(url_local,data=obj)
+    x = requests.post(url_local,data=obj,verify=False)
     print(x.text)
 
 sleep(1)
