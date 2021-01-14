@@ -12,7 +12,9 @@ signalData = [
     [0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x04,  0x0C],
     [0x0C,  0x12,  0x12,  0x12,  0x0C,  0x00,  0x00,  0x00],
     [0x06,  0x09,  0x09,  0x09,  0x06,  0x00,  0x00,  0x00],
-    [0x0E,  0x11,  0x11,  0x11,  0x0E,  0x00,  0x00,  0x00]
+    [0x0E,  0x11,  0x11,  0x11,  0x0E,  0x00,  0x00,  0x00],
+    [0x0A,  0x1F,  0x11,  0x11,  0x1F,  0x1F,  0x1F,  0x1F],
+
 ]
 
 def get_name(cell):
@@ -25,15 +27,15 @@ def get_calidad(cell):
     valor = int(round(float(quality[0]) / float(quality[1]) * 100))
     
     if valor==100:
-        lcd.lcd_display_string(unichr(0), 1, 18)
+        lcd.lcd_display_string(unichr(0), 1, 17)
     elif valor>=90 and valor<100:
-        lcd.lcd_display_string(unichr(0), 1, 18)
+        lcd.lcd_display_string(unichr(0), 1, 17)
     elif valor>=70 and valor<90:
-        lcd.lcd_display_string(unichr(0), 1, 18)
+        lcd.lcd_display_string(unichr(0), 1, 17)
     elif valor>=30 and valor<70:
-        lcd.lcd_display_string(unichr(2), 1, 18)
+        lcd.lcd_display_string(unichr(2), 1, 17)
     elif valor<30:
-        lcd.lcd_display_string(unichr(2), 1, 18)
+        lcd.lcd_display_string(unichr(2), 1, 17)
     else:
         print valor
     """                
