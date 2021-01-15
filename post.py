@@ -15,7 +15,6 @@ async def main():
         #e.sys.exc_info()[1]
         print("Ocurrio un error")
     """
-    time.sleep(1)
 def obtener_tiempo():
     reloj = datetime.datetime.now()
     hora = reloj.hour
@@ -36,6 +35,7 @@ while True:
 """
 while True:
     asyncio.run(main())
+    time.sleep(1)
 
 
 
