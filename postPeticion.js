@@ -12,7 +12,7 @@ let data = {
 }
 
 setInterval(()=>{
-    fetch('https://instrumentacionline.ddns.net:5002/tomardata',{
+    fetch('https://instrumentacionline.ddns.net:5002/raspbi',{
     method: 'POST',
     body: JSON.stringify(data),
     headers:{
