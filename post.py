@@ -4,13 +4,17 @@ import time
 import datetime
 import sys
 
-
+url_local = 'https://instrumentacionline.ddns.net:5002/tomardata'
 
 async def main():
-    try :
+    #try :
         peticion = requests.get('https://instrumentacionline.ddns.net:5002/tomardata')
         print(peticion)
-
+        """
+    except Exception:
+        #e.sys.exc_info()[1]
+        print("Ocurrio un error")
+    """
 def obtener_tiempo():
     reloj = datetime.datetime.now()
     hora = reloj.hour
@@ -24,7 +28,11 @@ def obtener_tiempo():
     print('%d:%d'%(hora,minuto))
 
 
-
+"""
+while True:
+    obtener_tiempo()
+    time.sleep(1)
+"""
 while True:
     asyncio.run(main())
     time.sleep(1)
