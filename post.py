@@ -20,7 +20,8 @@ def obtener_tiempo():
     else:
         hora = hora - 6
     print('Hora actual %d:%d '%(hora,minuto))
-obtener_tiempo()
+while True:
+    obtener_tiempo()
 asyncio.run(main())
 
 
