@@ -10,7 +10,7 @@ async def main():
     except:
         print("Ocurrio un error")
 def obtener_tiempo():
-    reloj = datetime.localtime()
+    reloj = datetime.time()
     print(vista)
     hora = reloj.hour
     minuto = reloj.minute
@@ -20,7 +20,7 @@ def obtener_tiempo():
         hora = hora + 16
     else:
         hora = hora - 6
-        
+
 while True:
     obtener_tiempo()
     time.sleep(1)
