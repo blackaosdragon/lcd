@@ -21,7 +21,7 @@ def obtener_tiempo():
     else:
         hora = hora - 6
     
-    print("%d:%d",%(hora,minuto))
+    print('%d:%d'%(hora,minuto))
 
 
 while True:
