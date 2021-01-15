@@ -1,5 +1,6 @@
 import asyncio
 import requests
+import time
 
 async def main():
     try :
@@ -8,3 +9,10 @@ async def main():
     except:
         print("Ocurrio un error")
 asyncio.run(main())
+
+def obtener_tiempo():
+    localtime = time.localtime(time.time())
+    print("Hora actual: ",localtime)
+
+
+
