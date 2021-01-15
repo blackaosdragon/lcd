@@ -2,8 +2,6 @@ import asyncio
 import requests
 from datetime import datetime, date, time, timedelta
 import calendar
-import I2C_LCD_driver 
-from time import *
 
 async def main():
     try :
