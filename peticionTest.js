@@ -15,7 +15,7 @@ setInterval(()=>{
     const req = https.request(options, res => {
         console.log(`Status code: ${res.statusCode}`)
         res.on('data', data => {
-            console.log(data)
+            process.stdout.write(data)
         });
     });
     req.on('error',e=>{
