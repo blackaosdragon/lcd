@@ -4,7 +4,7 @@ import requests
 async def main():
     try :
         peticion = requests.get('https://github.com/timeline.json')
-        print peticion
+        print(peticion)
     except:
-        print "Ocurrio un error"
+        print("Ocurrio un error")
 asyncio.run(main())
