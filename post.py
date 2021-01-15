@@ -19,7 +19,7 @@ def obtener_tiempo():
         hora = hora + 16
     else:
         hora = hora - 6
-    print("Hora actual: ",localtime)
+    print('Hora actual %d:%d '%(hora,minuto))
 obtener_tiempo()
 asyncio.run(main())
 
