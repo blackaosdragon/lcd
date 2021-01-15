@@ -11,6 +11,8 @@ async def main():
         print(peticion)
     except:
         print("Ocurrio un error")
+
+    time.sleep(1)
 def obtener_tiempo():
     reloj = datetime.datetime.now()
     hora = reloj.hour
