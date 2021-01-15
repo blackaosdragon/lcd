@@ -22,7 +22,7 @@ def obtener_tiempo():
     print('Hora actual %d:%d '%(hora,minuto))
 while True:
     obtener_tiempo()
-    datatime.sleep(1)
+    datetime.sleep(1)
 asyncio.run(main())
 
 
