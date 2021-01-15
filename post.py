@@ -8,7 +8,7 @@ url_local = 'https://instrumentacionline.ddns.net:5002/tomardata'
 
 async def main():
     #try :
-        peticion = requests.get('https://instrumentacionline.ddns.net:5002/tomardata')
+        peticion = requests.get('https://instrumentacionline.ddns.net:5002/tomardata',verify=False)
         print(peticion)
         """
     except Exception:
