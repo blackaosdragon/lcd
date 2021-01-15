@@ -11,17 +11,20 @@ const options = {
     method: 'GET',
     agent: httpsAgent
 }
-
-const req = https.request(options, res => {
-    console.log(`Status code: ${res.statusCode}`)
-    res.on('data', data => {
-        process.stdout.write(data)
+setInterval(()=>{
+    const req = https.request(options, res => {
+        console.log(`Status code: ${res.statusCode}`)
+        res.on('data', data => {
+            console.log(data)
+        });
     });
-});
-req.on('error',e=>{
-    console.log(e)
-})
-req.end()
+    req.on('error',e=>{
+        console.log(e)
+    })
+    req.end()
+},5000)
+
+
 /*
 const axios = require('axios');
 axios.post("https://instrumentacionline.ddns.net/tomardata").then( res => {
