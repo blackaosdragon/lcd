@@ -1,7 +1,6 @@
 import asyncio
 import requests
-from datetime import datetime, date, time, timedelta
-import calendar
+import time
 
 async def main():
     try :
@@ -10,7 +9,7 @@ async def main():
     except:
         print("Ocurrio un error")
 def obtener_tiempo():
-    reloj = datetime.now()
+    reloj = time.now()
     hora = reloj.hour
     minuto = reloj.minute
     segundo = reloj.second
@@ -22,7 +21,7 @@ def obtener_tiempo():
     print('Hora actual %d:%d '%(hora,minuto))
 while True:
     obtener_tiempo()
-    datetime.sleep(1)
+    time.sleep(1)
 asyncio.run(main())
 
 
