@@ -11,15 +11,18 @@ async def main():
         print("Ocurrio un error")
 def obtener_tiempo():
     reloj = datetime.time()
-    print(vista)
     hora = reloj.hour
     minuto = reloj.minute
     segundo = reloj.second
+    
     
     if hora<0:
         hora = hora + 16
     else:
         hora = hora - 6
+    
+    print("%d:%d",%(hora,minuto))
+
 
 while True:
     obtener_tiempo()
