@@ -27,8 +27,9 @@ def obtener_tiempo():
 
 while True:
     obtener_tiempo()
-    asyncio.run(main())
     time.sleep(1)
+while True:
+    asyncio.run(main())
 
 
 
