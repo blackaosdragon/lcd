@@ -1,5 +1,5 @@
 const https = require('https')
-let url_prueba = 'instrumentacionline.ddns.net'
+let url_prueba = 'https://instrumentacionline.ddns.net'
 const httpsAgent = new https.Agent({
     rejectUnauthorized: false,
 })
