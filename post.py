@@ -24,10 +24,11 @@ def obtener_tiempo():
     print('%d:%d'%(hora,minuto))
 
 
+asyncio.run(main())
 while True:
     obtener_tiempo()
     time.sleep(1)
-asyncio.run(main())
+
 
 
 
