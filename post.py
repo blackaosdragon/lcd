@@ -2,7 +2,7 @@
 import requests
 try :
     peticion = requests.get('https://github.com/timeline.json')
-except error:
+    print peticion
+except:
     print "Ocurrio un error"
 
-print peticion
