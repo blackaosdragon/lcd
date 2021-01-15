@@ -11,7 +11,7 @@ async def main():
         peticion = requests.get(url_local)
         print(peticion)
     except Exception:
-        e.sys.exc_info()[1]
+        #e.sys.exc_info()[1]
         print("Ocurrio un error")
 
     time.sleep(1)
