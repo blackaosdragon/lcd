@@ -2,6 +2,7 @@ import asyncio
 import requests
 import time
 import datetime
+import sys
 
 url_local = 'https://instrumentacionline.ddns.net:5002/tomardata'
 
@@ -9,7 +10,8 @@ async def main():
     try :
         peticion = requests.get(url_local)
         print(peticion)
-    except:
+    except Exception:
+        e.sys.exc_info()[1]
         print("Ocurrio un error")
 
     time.sleep(1)
