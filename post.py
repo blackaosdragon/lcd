@@ -15,12 +15,12 @@ def obtener_tiempo():
     minuto = reloj.minute
     segundo = reloj.second
     
-    
+    """
     if hora<0:
         hora = hora + 16
     else:
         hora = hora - 6
-    
+    """
     print('%d:%d'%(hora,minuto))
 
 
