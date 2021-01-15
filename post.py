@@ -1,6 +1,7 @@
 import asyncio
 import requests
 import time
+import datetime
 
 async def main():
     try :
@@ -9,19 +10,17 @@ async def main():
     except:
         print("Ocurrio un error")
 def obtener_tiempo():
-    reloj = time.localtime()
-    vista = time.strftime("%H : %M",reloj)
+    reloj = datetime.localtime()
     print(vista)
-    #hora = reloj.hour
-    #minuto = reloj.minute
-    #segundo = reloj.second
-    """
+    hora = reloj.hour
+    minuto = reloj.minute
+    segundo = reloj.second
+    
     if hora<0:
         hora = hora + 16
     else:
         hora = hora - 6
-    print('Hora actual %d:%d '%(hora,minuto))
-    """
+        
 while True:
     obtener_tiempo()
     time.sleep(1)
