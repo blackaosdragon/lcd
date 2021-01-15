@@ -7,7 +7,7 @@ url_local = 'https://instrumentacionline.ddns.net:5002/raspbi'
 
 async def main():
     try :
-        peticion = requests.post(url_local,data={temp=20, id:3.0},verify=False)
+        peticion = requests.post(url_local,data={temp:20, id:3.0},verify=False)
         print(peticion)
     except:
         print("Ocurrio un error")
