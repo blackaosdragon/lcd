@@ -10,9 +10,11 @@ async def main():
         print("Ocurrio un error")
 def obtener_tiempo():
     reloj = time.localtime()
-    hora = reloj.hour
-    minuto = reloj.minute
-    segundo = reloj.second
+    vista = time.strftime("%H : %M",reloj)
+    print(vista)
+    #hora = reloj.hour
+    #minuto = reloj.minute
+    #segundo = reloj.second
     
     if hora<0:
         hora = hora + 16
