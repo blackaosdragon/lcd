@@ -1,12 +1,12 @@
 const https = require('https')
-let url_prueba = 'instrumentacionline.ddns.net/'
+let url_prueba = 'instrumentacionline.ddns.net'
 const httpsAgent = new https.Agent({
     rejectUnauthorized: false,
 })
 
 const options = {
     hostname: url_prueba,
-    port: 443,
+    port: 5002,
     path: "/tomardata",
     method: 'GET',
     agent: httpsAgent
