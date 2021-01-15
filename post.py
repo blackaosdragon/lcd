@@ -9,7 +9,7 @@ async def main():
     except:
         print("Ocurrio un error")
 def obtener_tiempo():
-    reloj = time.now()
+    reloj = time.localtime()
     hora = reloj.hour
     minuto = reloj.minute
     segundo = reloj.second
