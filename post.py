@@ -13,6 +13,6 @@ asyncio.run(main())
 def obtener_tiempo():
     localtime = time.localtime(time.time())
     print("Hora actual: ",localtime)
-
+obtener_tiempo()
 
 
