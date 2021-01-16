@@ -6,7 +6,7 @@ const httpsAgent = new https.Agent({
 
 const options = {
     hostname: url_prueba,
-    port: 5002,
+    port: 443,
     path: '/tomardata',
     method: 'GET',
     agent: httpsAgent
