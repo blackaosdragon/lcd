@@ -136,7 +136,7 @@ while True:
         else:
             mylcd.lcd_display_string("%d"%hora,1,1)            
         #mylcd.lcd_display_string(" %d"%hora,1,1)
-        mylcd.lcd_display_string(":",1,3)
+        mylcd.lcd_display_string(" ",1,3)
         if minuto<10:
             mylcd.lcd_display_string("0%d "%minuto,1,4)
         else:
