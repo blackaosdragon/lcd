@@ -117,14 +117,34 @@ while True:
     #print("Horas: ",ahora.hour)
     #print("Minutos: ",ahora.minute)
     #print("Segundos: ",ahora.second)
+    
     if segundo%2==0:
-        mylcd.lcd_display_string("%d"%hora,1,1)
+        if hora<10:
+            mylcd.lcd_display_string("0%d"%hora,1,1)
+        else:
+            mylcd.lcd_display_string("%d"%hora,1,1)            
+        #mylcd.lcd_display_string(" %d"%hora,1,1)
         mylcd.lcd_display_string(":",1,3)
-        mylcd.lcd_display_string("%d"%minuto,1,4)
+        if minuto<10:
+            mylcd.lcd_display_string("0%d "%minuto,1,4)
+        else:
+            mylcd.lcd_display_string("%d"%minuto,1,4)
+        #mylcd.lcd_display_string("%d "%minuto,1,4)
     else:
-        mylcd.lcd_display_string("%d"%hora,1,1)
-        mylcd.lcd_display_string(" ",1,3)
-        mylcd.lcd_display_string("%d"%minuto,1,4)    
+        if hora<10:
+            mylcd.lcd_display_string("0%d"%hora,1,1)
+        else:
+            mylcd.lcd_display_string("%d"%hora,1,1)            
+        #mylcd.lcd_display_string(" %d"%hora,1,1)
+        mylcd.lcd_display_string(":",1,3)
+        if minuto<10:
+            mylcd.lcd_display_string("0%d "%minuto,1,4)
+        else:
+            mylcd.lcd_display_string("%d"%minuto,1,4)
+        #mylcd.lcd_display_string("%d "%minuto,1,4)
+        #mylcd.lcd_display_string(" %d"%hora,1,1)
+        #mylcd.lcd_display_string(" ",1,3)
+        #mylcd.lcd_display_string("%d "%minuto,1,4)    
     
     mylcd.lcd_display_string(unichr(8), 1,19)
     mylcd.lcd_display_string("Temp: ",3,0)
