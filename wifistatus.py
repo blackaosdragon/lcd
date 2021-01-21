@@ -15,7 +15,7 @@ signalData = [
 #centigrado
 #senal maxima
 #enchufe
-#señal 
+#senal 
 
 def get_name(cell):
     return matching_line(cell,"ESSID")[1:-1]
