@@ -151,7 +151,7 @@ while True:
     mylcd.lcd_display_string(unichr(10), 1,19)
     mylcd.lcd_display_string("Temp: ",3,0)
     mylcd.lcd_display_string("%.3f"%temperatura,3,6)
-    mylcd.lcd_display_string(unichr(0), 3,11)
+    mylcd.lcd_display_string(unichr(1), 3,11)
     mylcd.lcd_display_string("C ",3,12)
     obj = {
         'id': 3,
