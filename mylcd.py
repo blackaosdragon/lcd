@@ -117,7 +117,6 @@ while True:
     hora = ahora.hour
     minuto = ahora.minute
     segundo = ahora.second
-    hora = hora - 6
     #print("Horas: ",ahora.hour)
     #print("Minutos: ",ahora.minute)
     #print("Segundos: ",ahora.second)
@@ -160,7 +159,7 @@ while True:
     elif temperatura<25:
         GPIO.output(11,False)
     else:
-        print("Que?")
+        
         
     obj = {
         'id': 3,
