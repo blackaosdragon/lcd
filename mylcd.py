@@ -99,7 +99,8 @@ def read_temp():
     data = lines[1].find('t=')
     data_string = lines[1][data+2:]
     celcius = float(data_string) / 1000.0
-    print(celcius)
+    return celcius
+    """
     #print(data_string)
     while lines[0].strip()[-3:] != 'YES':
         sleep(0.2)
@@ -111,7 +112,7 @@ def read_temp():
         temp_c = float(temp_string) / 1000.0
         #temp_f = temp_c * 9.0 / 5.0 + 32.0
         return temp_c
-	
+	"""
 while True:
     temperatura = read_temp()
     import wifistatus
@@ -154,7 +155,7 @@ while True:
     
     mylcd.lcd_display_string(unichr(8), 1,19)
     mylcd.lcd_display_string("Temp: ",3,0)
-    mylcd.lcd_display_string("%.2f"%temperatura,3,6)
+    mylcd.lcd_display_string("%.3f"%temperatura,3,6)
     mylcd.lcd_display_string(unichr(6), 3,11)
     mylcd.lcd_display_string("C ",3,12)
     obj = {
