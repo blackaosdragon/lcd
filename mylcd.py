@@ -96,10 +96,12 @@ def read_temp_raw():
  
 def read_temp():
     lines = read_temp_raw()
+    print(lines)
     while lines[0].strip()[-3:] != 'YES':
         sleep(0.2)
         lines = read_temp_raw()
     equals_pos = lines[1].find('t=')
+    print(lines)
     if equals_pos != -1:
         temp_string = lines[1][equals_pos+2:]
         temp_c = float(temp_string) / 1000.0
