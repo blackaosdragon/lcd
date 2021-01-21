@@ -96,6 +96,7 @@ def read_temp():
     data = lines[1].find('t=')
     data_string = lines[1][data+2:]
     celcius = float(data_string) / 1000.0
+    print(celcius)
     return celcius
     """
     #print(data_string)
