@@ -10,12 +10,16 @@ signalData = [
     [0x01,  0x01,  0x03,  0x03,  0x07,  0x07,  0x0F,  0x1F], 
     [0x00,  0x0A,  0x0A,  0x1F,  0x0E,  0x04,  0x04,  0x04],
     [0x00,  0x00,  0x02,  0x02,  0x06,  0x06,  0x0E,  0x1E],
+    [0x00,  0x00,  0x00,  0x00,  0x02,  0x02,  0x06,  0x0E],
+    [0x00,  0x00,  0x00,  0x00,  0x00,  0x00,  0x04,  0x0C]
 
 ]
 #centigrado
 #senal maxima
 #enchufe
-#senal 
+#senal 3/4
+#senal 1/2
+#senal 1/4
 
 def get_name(cell):
     return matching_line(cell,"ESSID")[1:-1]
@@ -31,11 +35,11 @@ def get_calidad(cell):
     elif valor>=90 and valor<100:
         lcd.lcd_display_string(unichr(1), 1, 17)
     elif valor>=70 and valor<90:
-        lcd.lcd_display_string(unichr(2), 1, 17)
-    elif valor>=30 and valor<70:
         lcd.lcd_display_string(unichr(3), 1, 17)
-    elif valor<30:
+    elif valor>=30 and valor<70:
         lcd.lcd_display_string(unichr(4), 1, 17)
+    elif valor<30:
+        lcd.lcd_display_string(unichr(5), 1, 17)
     else:
         print valor
     """                
