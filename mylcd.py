@@ -155,7 +155,7 @@ while True:
     mylcd.lcd_display_string("Temp: ",3,0)
     mylcd.lcd_display_string("%.3f"%temperatura,3,6)
     mylcd.lcd_display_string(unichr(0), 3,12)
-    mylcd.lcd_display_string("C ",3,12)
+    mylcd.lcd_display_string("C ",3,13)
     if temperatura>30:
         GPIO.output(11,True)
     elif temperatura<25:
