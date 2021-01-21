@@ -13,7 +13,7 @@ signalData = [
 
 ]
 #centigrado
-#señal 100%
+#senal maxima
 #enchufe
 #señal 
 
