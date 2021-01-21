@@ -96,9 +96,10 @@ def read_temp_raw():
  
 def read_temp():
     lines = read_temp_raw()
-    
     data = lines[1].find('t=')
-    print(data)
+    data_string = lines[1][equals_pos+2:]
+    print(lines)
+    print(data_string)
     while lines[0].strip()[-3:] != 'YES':
         sleep(0.2)
         lines = read_temp_raw()
