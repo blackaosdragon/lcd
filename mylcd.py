@@ -96,7 +96,7 @@ def read_temp_raw():
  
 def read_temp():
     lines = read_temp_raw()
-    print(lines)
+    print(lines[1])
     while lines[0].strip()[-3:] != 'YES':
         sleep(0.2)
         lines = read_temp_raw()
