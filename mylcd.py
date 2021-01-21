@@ -1,4 +1,5 @@
 #import asyncio
+import RPi.GPIO as GPIO
 import requests
 import os
 import glob
@@ -14,7 +15,8 @@ mylcd = I2C_LCD_driver.lcd()
 url = 'https://instrumentacionline.ddns.net/raspbi'
 url_local = 'https://instrumentacionline.ddns.net:5002/raspbi'
 
-
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11,GPIO.OUT)
 #import wifistatus
 
 #intentalo = wifistatus
@@ -153,6 +155,13 @@ while True:
     mylcd.lcd_display_string("%.3f"%temperatura,3,6)
     mylcd.lcd_display_string(unichr(0), 3,11)
     mylcd.lcd_display_string("C ",3,12)
+    if temperatura>25:
+        GPIO.output(11,True)
+    elif temperatura<18:
+        GPIO.output(11,False)
+    else:
+        print("Que?")
+        
     obj = {
         'id': 3,
         'temperatura': temperatura
