@@ -1,3 +1,5 @@
 import sys
 
-print("Hola mundo")
+data = 10.5
+
+print(data)
