@@ -1,5 +1,5 @@
 #import asyncio
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 import requests
 import os
 import glob
@@ -15,8 +15,8 @@ mylcd = I2C_LCD_driver.lcd()
 url = 'https://instrumentacionline.ddns.net/raspbi'
 url_local = 'https://instrumentacionline.ddns.net:5002/raspbi'
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11,GPIO.OUT)
+#GPIO.setmode(GPIO.BOARD)
+#GPIO.setup(11,GPIO.OUT)
 #import wifistatus
 
 #intentalo = wifistatus
@@ -96,7 +96,7 @@ def read_temp():
     data = lines[1].find('t=')
     data_string = lines[1][data+2:]
     celcius = float(data_string) / 1000.0
-    print(celcius)
+    #print(celcius)
     return celcius
     """
     #print(data_string)
@@ -113,6 +113,7 @@ def read_temp():
 	"""
 while True:
     temperatura = read_temp()
+    print temperatura
     import wifistatus
     ahora = datetime.now()
     hora = ahora.hour
@@ -156,13 +157,14 @@ while True:
     mylcd.lcd_display_string("%.3f"%temperatura,3,6)
     mylcd.lcd_display_string(unichr(0), 3,12)
     mylcd.lcd_display_string("C ",3,13)
+    """
     if temperatura>30:
         GPIO.output(11,True)
     elif temperatura<25:
         GPIO.output(11,False)
     else:
         print("")
-        
+    """ 
         
     obj = {
         'id': 3,
