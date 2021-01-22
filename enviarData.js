@@ -5,7 +5,7 @@ const puerto = 3001
 
 let aplicacion = spawn('python',['./mylcd.py'])
 
-aplicacion.stdout.on('data', data =>{
+aplicacion.stdout.on('data', function(data){
     console.log(data.toString())
     
     console.log()
