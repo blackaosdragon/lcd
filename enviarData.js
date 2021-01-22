@@ -5,7 +5,7 @@ const puerto = 3001
 
 let aplicacion = spawn('python',['./test.py'])
 
-while (True){
+while (true){
     aplicacion.stdout.on('data', data => {
         temp = data.toString()
         console.log(temp)
