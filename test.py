@@ -22,6 +22,6 @@ def read_temp():
     #print(celcius)
     return celcius
 
-while True:
-    temp = read_temp()
-    print temp
+
+temp = read_temp()
+print temp
