@@ -1,7 +1,20 @@
 const sensor = require('ds18b20')
 //const spawn = require('child_process').spawn
 sensor.sensors( (err,ids) => {
-    console.log(ids)
+    if(err){
+
+    } else{
+        console.log(ids)
+    }
+    
+})
+
+sensor.temperature('28-011913ff6589', (err,temp)=>{
+    if(err){
+        console.log("Error: ",err)
+    } else {
+        console.log(`T = ${temp}°C`)
+    }
 })
 
 //const express = require('express')
