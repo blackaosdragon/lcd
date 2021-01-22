@@ -5,7 +5,7 @@ sensor.sensors( (err,ids) => {
     if(err){
 
     } else{
-        console.log(ids)
+        //console.log(ids)
     }
     
 })
