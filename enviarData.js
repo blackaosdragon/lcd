@@ -6,5 +6,7 @@ const puerto = 3001
 let aplicacion = spawn('python',['./test.py'])
 
 aplicacion.stdout.on('data', data => {
-    console.log(data.toString())
+    temp = data.toString()
+    console.log(temp)
+
 })

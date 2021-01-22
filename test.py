@@ -21,5 +21,7 @@ def read_temp():
     celcius = float(data_string) / 1000.0
     #print(celcius)
     return celcius
-temp = read_temp()
-print temp
+
+while True:
+    temp = read_temp()
+    print temp
