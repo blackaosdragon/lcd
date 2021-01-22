@@ -1,6 +1,6 @@
 #import asyncio
 #import RPi.GPIO as GPIO
-import sys
+import syslog
 import requests
 import os
 import glob
