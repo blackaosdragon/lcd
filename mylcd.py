@@ -111,71 +111,73 @@ def read_temp():
         #temp_f = temp_c * 9.0 / 5.0 + 32.0
         return temp_c
 	"""
-temperatura = read_temp()
-import wifistatus
-ahora = datetime.now()
-hora = ahora.hour
-minuto = ahora.minute
-segundo = ahora.second
-#print("Horas: ",ahora.hour)
-#print("Minutos: ",ahora.minute)
-#print("Segundos: ",ahora.second)
+while True:
+    temperatura = read_temp()
+    import wifistatus
+    ahora = datetime.now()
+    hora = ahora.hour
+    minuto = ahora.minute
+    segundo = ahora.second
 
-if segundo%2==0:
-    if hora<10:
-        mylcd.lcd_display_string("0%d"%hora,1,1)
-    else:
-        mylcd.lcd_display_string("%d"%hora,1,1)            
-    #mylcd.lcd_display_string(" %d"%hora,1,1)
-    mylcd.lcd_display_string(":",1,3)
-    if minuto<10:
-        mylcd.lcd_display_string("0%d "%minuto,1,4)
-    else:
-        mylcd.lcd_display_string("%d"%minuto,1,4)
-    #mylcd.lcd_display_string("%d "%minuto,1,4)
-else:
-    if hora<10:
-        mylcd.lcd_display_string("0%d"%hora,1,1)
-    else:
-        mylcd.lcd_display_string("%d"%hora,1,1)            
-    #mylcd.lcd_display_string(" %d"%hora,1,1)
-    mylcd.lcd_display_string(" ",1,3)
-    if minuto<10:
-        mylcd.lcd_display_string("0%d "%minuto,1,4)
-    else:
-        mylcd.lcd_display_string("%d"%minuto,1,4)
-    #mylcd.lcd_display_string("%d "%minuto,1,4)
-    #mylcd.lcd_display_string(" %d"%hora,1,1)
-    #mylcd.lcd_display_string(" ",1,3)
-    #mylcd.lcd_display_string("%d "%minuto,1,4)    
-
-mylcd.lcd_display_string(unichr(10), 1,19)
-mylcd.lcd_display_string("Temp: ",3,0)
-mylcd.lcd_display_string("%.3f"%temperatura,3,6)
-mylcd.lcd_display_string(unichr(0), 3,12)
-mylcd.lcd_display_string("C ",3,13)
-if temperatura>30:
-    GPIO.output(11,True)
-elif temperatura<25:
-    GPIO.output(11,False)
-else:
-    print("")
+    #print("Horas: ",ahora.hour)
+    #print("Minutos: ",ahora.minute)
+    #print("Segundos: ",ahora.second)
     
-    
-obj = {
-    'id': 3,
-    'temperatura': temperatura
-}
-"""
-async def enviar():
-    try:
-        x = requests.post(url_local,data=obj,verify=False)
-        print(x.text)
-    except:
-        print("exepcion ocurrida")
+    if segundo%2==0:
+        if hora<10:
+            mylcd.lcd_display_string("0%d"%hora,1,1)
+        else:
+            mylcd.lcd_display_string("%d"%hora,1,1)            
+        #mylcd.lcd_display_string(" %d"%hora,1,1)
+        mylcd.lcd_display_string(":",1,3)
+        if minuto<10:
+            mylcd.lcd_display_string("0%d "%minuto,1,4)
+        else:
+            mylcd.lcd_display_string("%d"%minuto,1,4)
+        #mylcd.lcd_display_string("%d "%minuto,1,4)
     else:
-        print("Error, seguira")
-"""
+        if hora<10:
+            mylcd.lcd_display_string("0%d"%hora,1,1)
+        else:
+            mylcd.lcd_display_string("%d"%hora,1,1)            
+        #mylcd.lcd_display_string(" %d"%hora,1,1)
+        mylcd.lcd_display_string(" ",1,3)
+        if minuto<10:
+            mylcd.lcd_display_string("0%d "%minuto,1,4)
+        else:
+            mylcd.lcd_display_string("%d"%minuto,1,4)
+        #mylcd.lcd_display_string("%d "%minuto,1,4)
+        #mylcd.lcd_display_string(" %d"%hora,1,1)
+        #mylcd.lcd_display_string(" ",1,3)
+        #mylcd.lcd_display_string("%d "%minuto,1,4)    
+    
+    mylcd.lcd_display_string(unichr(10), 1,19)
+    mylcd.lcd_display_string("Temp: ",3,0)
+    mylcd.lcd_display_string("%.3f"%temperatura,3,6)
+    mylcd.lcd_display_string(unichr(0), 3,12)
+    mylcd.lcd_display_string("C ",3,13)
+    if temperatura>30:
+        GPIO.output(11,True)
+    elif temperatura<25:
+        GPIO.output(11,False)
+    else:
+        print("")
+        
+        
+    obj = {
+        'id': 3,
+        'temperatura': temperatura
+    }
+    """
+    async def enviar():
+        try:
+            x = requests.post(url_local,data=obj,verify=False)
+            print(x.text)
+        except:
+            print("exepcion ocurrida")
+        else:
+            print("Error, seguira")
+    """
 sleep(1)
 
 """async def main():
