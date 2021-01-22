@@ -15,10 +15,10 @@ setInterval(()=>{
         if(err){
             console.log("Error: ",err)
         } else {
-            console.log(`T = ${temperatura}°C`)
+            console.log(`T = ${temp}°C`)
         }
     })
-},1100)
+},5000)
 
 
 //const express = require('express')
