@@ -10,16 +10,16 @@ sensor.sensors( (err,ids) => {
     
 })
 
-sensor.temperature('28-011913ff6583', (err,temp)=>{
-    if(err){
-        console.log("Error: ",err)
-    } else {
-        setInterval(()=>{
-            temperatura = temp
+setInterval(()=>{
+    sensor.temperature('28-011913ff6583', (err,temp)=>{
+        if(err){
+            console.log("Error: ",err)
+        } else {
             console.log(`T = ${temperatura}°C`)
-        },1200)
-    }
-})
+        }
+    })
+},1100)
+
 
 //const express = require('express')
 //const { spawn } = require('child_process')
