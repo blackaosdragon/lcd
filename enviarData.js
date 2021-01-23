@@ -2,7 +2,7 @@ const sensor = require('ds18b20');
 const LCD = require('lcdi2c');
 let lcd = new LCD(1,0x27,20,4);
 lcd.clear();
-let temperatura = 0
+let temperatura = 18.789
 //const spawn = require('child_process').spawn
 sensor.sensors( (err,ids) => {
     if(err){
@@ -12,7 +12,10 @@ sensor.sensors( (err,ids) => {
     }
     
 })
+lcd.clear();
+lcd.print(`T = ${temp} °C`,3);
 
+/*
 setInterval(()=>{
     
     sensor.temperature('28-011913ff6583', (err,temp)=>{
@@ -24,6 +27,7 @@ setInterval(()=>{
         }
     })
 },5000)
+*/
 
 
 //const express = require('express')
