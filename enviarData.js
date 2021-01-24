@@ -20,9 +20,9 @@ setInterval(()=>{
     let fecha = new Date()
     let mes = fecha.getMonth()+1
     if(parseInt(fecha.getSeconds)%2==0){
-        lcd.println(`${fecha.getDate()} / ${mes} / ${fecha.getFullYear()} `,1);
+        lcd.println(`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes()}`,1);
     } else {
-        lcd.println(`${fecha.getDate()} / ${mes} / ${fecha.getFullYear()} `,1);
+        lcd.println(`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`,1);
     }
 
 },1000)
