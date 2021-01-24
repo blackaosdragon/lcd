@@ -16,7 +16,18 @@ sensor.sensors( (err,ids) => {
 })
 */
 lcd.clear();
-lcd.print(`T = ${temperatura} °C`,3);
+setInterval(()=>{
+    let fecha = new Date()
+    if(parseInt(fecha.getSeconds)%2==0){
+        lcd.println(`${fecha.getDate()} / ${fecha.getMonth()} / ${fecha.getFullYear()} ${fecha.getHours()} : ${fecha.getMinutes()}`,1);
+    } else {
+        lcd.println(`${fecha.getDate()} / ${fecha.getMonth()} / ${fecha.getFullYear()} ${fecha.getHours()}   ${fecha.getMinutes()}`,1);
+    }
+
+},1000)
+
+lcd.println(`T = ${temperatura} °C`,3);
+
 
 /*
 setInterval(()=>{
