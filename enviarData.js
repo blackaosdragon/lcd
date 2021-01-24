@@ -26,7 +26,7 @@ lcd.begin().then(()=>{
     }
     lcd.println(`T = ${temperatura} C`,3);
 }).catch( err =>{
-    console.log(error)
+    console.log(err)
 })
 
 //lcd.println(` `,2);
