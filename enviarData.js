@@ -19,13 +19,13 @@ lcd.clear();
 setInterval(()=>{
     let fecha = new Date()
     let mes = fecha.getMonth()+1
-    if(parseInt(fecha.getSeconds)%2==0){
+    if(parseInt(fecha.getSeconds())%2==0){
         lcd.println(`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes()}`,1);
     } else {
         lcd.println(`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`,1);
     }
 
-},1000)
+},00)
 lcd.println(` `,2);
 
 lcd.println(`T = ${temperatura} °C`,3);
