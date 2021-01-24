@@ -25,6 +25,7 @@ setInterval(()=>{
     }
 
 },1000)
+lcd.println(` `,2);
 
 lcd.println(`T = ${temperatura} °C`,3);
 
