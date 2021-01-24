@@ -5,6 +5,7 @@ lcd.clear();
 let temperatura = 18.789
 //const spawn = require('child_process').spawn
 
+/*
 sensor.sensors( (err,ids) => {
     if(err){
 
@@ -13,6 +14,7 @@ sensor.sensors( (err,ids) => {
     }
     
 })
+*/
 lcd.clear();
 lcd.print(`T = ${temperatura} °C`,3);
 
