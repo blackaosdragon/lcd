@@ -24,7 +24,7 @@ if(parseInt(fecha.getSeconds())%2==0){
 } else {
     lcd.printLineSync(1,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`);
 }
-lcd.println(`T = ${temperatura} C`,3);
+lcd.printLineSync(`T = ${temperatura} C`,3);
 
 
 //lcd.println(` `,2);
