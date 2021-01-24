@@ -3,6 +3,7 @@ const LCD = require('raspberrypi-liquid-crystal');
 const lcd = new LCD( 1, 0x27, 20, 4 );
 
 let temperatura = 18.789
+lcd.createCharSync( 0,[ 0x00,0x0A,0x0A,0x1F,0x0E,0x04,0x04,0x04] )
 //const spawn = require('child_process').spawn
 
 /*
@@ -26,7 +27,9 @@ setInterval(()=>{
         lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`);
     }
     lcd.printLineSync(2,`T = ${temperatura} C`,);
-    lcd.createCharSync( 3,[ 0x01,0x01,0x03,0x03,0x07,0x07,0x0F, 0x1F] )
+    lcd.setCursor(0,19)
+    lcd.getChar(0)
+    
     
 
 },1000)
