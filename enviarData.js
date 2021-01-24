@@ -21,11 +21,11 @@ setInterval(()=>{
     let fecha = new Date();
     let mes = fecha.getMonth()+1;
     if(parseInt(fecha.getSeconds())%2==0){
-        lcd.printLineSync(1,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes()}`);
+        lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes()}`);
     } else {
-        lcd.printLineSync(1,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`);
+        lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`);
     }
-    lcd.printLineSync(3,`T = ${temperatura} C`,);
+    lcd.printLineSync(2,`T = ${temperatura} C`,);
     
 
 },1000)
