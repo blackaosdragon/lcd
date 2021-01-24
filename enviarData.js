@@ -28,8 +28,8 @@ setInterval(()=>{
         lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`);
     }
     lcd.printLineSync(2,`T = ${temperatura} C`,);
-    lcd.setCursor(0,19)
-    LCD.getChar(0)
+    lcd.setCursor(1,17)
+    lcd.getChar(0)
 },1000)
 
 
