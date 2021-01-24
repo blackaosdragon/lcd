@@ -15,19 +15,17 @@ sensor.sensors( (err,ids) => {
     
 })
 */
-lcd.begin().then(()=>{
-    lcd.clearSync()
-    let fecha = new Date()
-    let mes = fecha.getMonth()+1
-    if(parseInt(fecha.getSeconds())%2==0){
-        lcd.printLineSync(1,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes()}`);
-    } else {
-        lcd.printLineSync(1,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`);
-    }
-    lcd.println(`T = ${temperatura} C`,3);
-}).catch( err =>{
-    console.log(err)
-})
+lcd.beginSync();
+lcd.clearSync()
+let fecha = new Date()
+let mes = fecha.getMonth()+1
+if(parseInt(fecha.getSeconds())%2==0){
+    lcd.printLineSync(1,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes()}`);
+} else {
+    lcd.printLineSync(1,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`);
+}
+lcd.println(`T = ${temperatura} C`,3);
+
 
 //lcd.println(` `,2);
 
