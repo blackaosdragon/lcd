@@ -29,7 +29,7 @@ setInterval(()=>{
     }
     lcd.printLineSync(2,`T = ${temperatura} C`,);
     lcd.setCursor(1,17)
-    lcd.getChar(0)
+    LCD.getChar(0)
 },1000)
 
 
