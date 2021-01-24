@@ -4,7 +4,7 @@ let lcd = new LCD(1,0x27,20,4);
 lcd.clear();
 let temperatura = 18.789
 //const spawn = require('child_process').spawn
-}1  |
+
 sensor.sensors( (err,ids) => {
     if(err){
 
