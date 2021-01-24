@@ -2,7 +2,6 @@
 const LCD = require('raspberrypi-liquid-crystal');
 const lcd = new LCD( 1, 0x27, 20, 4 );
 
-lcd.clear();
 let temperatura = 18.789
 //const spawn = require('child_process').spawn
 
@@ -16,8 +15,8 @@ sensor.sensors( (err,ids) => {
     
 })
 */
-lcd.clearSync();
-setInterval(()=>{
+lcd.begin().then(()=>{
+    lcd.clearSync()
     let fecha = new Date()
     let mes = fecha.getMonth()+1
     if(parseInt(fecha.getSeconds())%2==0){
@@ -26,8 +25,10 @@ setInterval(()=>{
         lcd.printLineSync(1,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`);
     }
     lcd.println(`T = ${temperatura} C`,3);
+}).catch( err =>{
+    console.log(error)
+})
 
-},1000)
 //lcd.println(` `,2);
 
 //
