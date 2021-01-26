@@ -1,4 +1,4 @@
-//const sensor = require('ds18b20');
+const sensor = require('ds18b20');
 const LCD = require('raspberrypi-liquid-crystal');
 const lcd = new LCD( 1, 0x27, 20, 4 );
 
@@ -27,9 +27,15 @@ setInterval(()=>{
     } else {
         lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${fecha.getHours()} ${fecha.getMinutes()}`);
     }
-    lcd.printLineSync(2,`T = ${temperatura} C`,);
-    lcd.setCursor(1,17)
-    LCD.getChar(0)
+    sensor.temperature('28-011913ff6583',(err,temp)=>{
+        if(err){
+            console.log(err)
+            lcd.printLineSync(2, `T = Error`)
+        } else {
+            lcd.printLineSync(2,`T = ${temp} C`,);
+        }
+
+    })
 },1000)
 
 
