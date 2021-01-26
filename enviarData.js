@@ -23,25 +23,30 @@ lcd.clearSync();
 setInterval( ()=>{
     let fecha = new Date();
     let mes = fecha.getMonth() + 1;
-    if (fecha.getHours()<10){
-        compararMinutos(`0${fecha.getHours()}`);
-    } else {
-        compararMinutos(`${fecha.getHours()}`);
-    }
-    let compararMinutos = (horas) => {
+
+    compararMinutos = horas => {
         if(fecha.getMinutes()<10){
             compararSegundos(horas,`0${fecha.getMinutes()}`);
         } else {
             compararSegundos(horas,`${fecha.getMinutes()}`);
         }
     }
-    let compararSegundos = (horas,minutos) => {
+
+    compararSegundos = (horas,minutos) => {
         if(fecha.getSeconds()%2==0){
             lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas} ${minutos} `);
         } else {
             lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas}:${minutos} `);
         }
     }
+
+    if (fecha.getHours()<10){
+        compararMinutos(`0${fecha.getHours()}`);
+    } else {
+        compararMinutos(`${fecha.getHours()}`);
+    }
+    
+    
     sensor.temperature('28-011913ff6583',(err,temp)=>{
         if(err){
             console.log(err)
