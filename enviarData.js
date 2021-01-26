@@ -28,14 +28,14 @@ setInterval( ()=>{
     } else {
         compararMinutos(`${fecha.getHours()}`);
     }
-    compararMinutos = (horas) => {
+    let compararMinutos = (horas) => {
         if(fecha.getMinutes()<10){
             compararSegundos(horas,`0${fecha.getMinutes()}`);
         } else {
             compararSegundos(horas,`${fecha.getMinutes()}`);
         }
     }
-    compararSegundos = (horas,minutos) => {
+    let compararSegundos = (horas,minutos) => {
         if(fecha.getSeconds()%2==0){
             lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas} ${minutos} `);
         } else {
