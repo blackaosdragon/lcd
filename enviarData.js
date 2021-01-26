@@ -34,7 +34,7 @@ setInterval(()=>{
             lcd.printLineSync(2, `T = Error`)
         } else {
             lcd.printLineSync(2,`T = ${temp} C`,);
-            lcd.printLineSync(3,LCD.getChar(0));
+            lcd.printLineSync(3,LCD.getChar(1));
         }
 
     })
