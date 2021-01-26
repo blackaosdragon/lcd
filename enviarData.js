@@ -33,7 +33,7 @@ setInterval(()=>{
             console.log(err)
             lcd.printLineSync(2, `T = Error`)
         } else {
-            lcd.printLineSync(2,`T = ${temp} ${LCD.getChar(1)}C `,);
+            lcd.printLineSync(2,`T = ${temp}${LCD.getChar(1)}C `,);
         }
 
     })
