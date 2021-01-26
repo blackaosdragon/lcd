@@ -20,6 +20,40 @@ sensor.sensors( (err,ids) => {
 */
 
 lcd.clearSync();
+setInterval( ()=>{
+    let fecha = new Date();
+    let mes = fecha.getMonth() + 1;
+    if (fecha.getHours()<10){
+        compararMinutos(`0${fecha.getHours()}`);
+    } else {
+        compararMinutos(`${fecha.getHours()}`);
+    }
+    compararMinutos = (horas) => {
+        if(fecha.getMinutes()<10){
+            compararSegundos(horas,`0${fecha.getMinutes()}`);
+        } else {
+            compararSegundos(horas,`${fecha.getMinutes()}`);
+        }
+    }
+    compararSegundos = (horas,minutos) => {
+        if(fecha.getSeconds()%2==0){
+            lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas} ${minutos} `);
+        } else {
+            lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas}:${minutos} `);
+        }
+    }
+    sensor.temperature('28-011913ff6583',(err,temp)=>{
+        if(err){
+            console.log(err)
+            lcd.printLineSync(2, `T = Error`)
+        } else {
+            lcd.printLineSync(2,`T = ${temp}${LCD.getChar(1)}C  `,);
+        }
+
+    })
+},1000);
+//////////////////////////////////////
+/*
 setInterval(()=>{
     let fecha = new Date();
     let mes = fecha.getMonth()+1;
@@ -38,7 +72,8 @@ setInterval(()=>{
 
     })
 },1000)
-
+///////////////////////////////////////////////
+*/
 
 
 
@@ -62,19 +97,4 @@ setInterval(()=>{
 },5000)
 */
 
-
-//const express = require('express')
-//const { spawn } = require('child_process')
-//const app = express();
-//const puerto = 3001
-
-//let aplicacion = spawn('python',['./test.py'])
-/*
-while (true){
-    aplicacion.stdout.on('data', data => {
-        temp = data.toString()
-        console.log(temp)
-    })
-}
-*/
 
