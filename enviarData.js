@@ -1,3 +1,4 @@
+const redes = require('node-wifi-scanner');
 const sensor = require('ds18b20');
 const LCD = require('raspberrypi-liquid-crystal');
 const lcd = new LCD( 1, 0x27, 20, 4 );
@@ -20,6 +21,13 @@ sensor.sensors( (err,ids) => {
 */
 
 lcd.clearSync();
+redes.scan( (err,networks) => {
+    if(err){
+        console.log(err)
+    } else {
+        console.log(networks)
+    }
+})
 setInterval( ()=>{
     let fecha = new Date();
     let mes = fecha.getMonth() + 1;
