@@ -34,7 +34,7 @@ setInterval( ()=>{
     }
 
     compararSegundos = (horas,minutos,signal) => {
-        console.log(signal)
+        
         if(fecha.getSeconds()%2==0){
             
             lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas} ${minutos}  ${LCD.getChar(signal)} ${LCD.getChar(2)}`);
@@ -56,7 +56,7 @@ setInterval( ()=>{
             } else {
                 
                 let signal = parseInt(red[0].rssi)
-                console.log(signal)
+                
                 if (signal>=-20){
                     compararHoras(3)
                 } else if(signal<-20 && signal>=-70) {
