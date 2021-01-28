@@ -58,11 +58,11 @@ setInterval( ()=>{
                 let signal = parseInt(red[0].rssi)
                 console.log(signal)
                 if (signal>=-20){
-                    compararMinutos(3)
+                    compararHoras(3)
                 } else if(signal<-20 && signal>=-70) {
-                    compararMinutos(4)
+                    compararHoras(4)
                 } else if(signal<-70){
-                    compararMinutos(5)
+                    compararHoras(5)
                 }
             }
 
