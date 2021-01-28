@@ -3,7 +3,7 @@ const sensor = require('ds18b20');
 const LCD = require('raspberrypi-liquid-crystal');
 const lcd = new LCD( 1, 0x27, 20, 4 );
 const usonic = require('mmm-usonic');
-import Sonar from 'raspbi-hc-sr04';
+const Sonar =  require('raspbi-hc-sr04');
 
 let temperatura = 18.789
 let sonar = new Sonar ({triggerPin: 23, echoPin: 24})
