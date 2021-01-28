@@ -6,7 +6,7 @@ const usonic = require('mmm-usonic');
 const Sonar =  require('raspi-hc-sr04');
 
 let temperatura = 18.789
-let sonar = new Sonar ({triggerPin: 23, echoPin: 24})
+let sonar = Sonar ({triggerPin: 23, echoPin: 24})
 
 
 lcd.beginSync();
