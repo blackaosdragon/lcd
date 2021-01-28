@@ -2,7 +2,7 @@ const redes = require('node-wifi-scanner');
 const sensor = require('ds18b20');
 const LCD = require('raspberrypi-liquid-crystal');
 const lcd = new LCD( 1, 0x27, 20, 4 );
-
+/*
 const Gpio = require('pigpio').Gpio;
 const MICROSECDONDS_PER_CM = 1e6/34321;
 const trigger = new Gpio(23, {mode: Gpio.OUTPUT});
@@ -32,6 +32,7 @@ const watchHCSR04 = () => {
   }, 1000);
 
 let temperatura = 18.789
+*/
 
 
 lcd.beginSync();
