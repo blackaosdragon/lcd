@@ -4,7 +4,7 @@ const lcd = new LCD( 1, 0x27, 20, 4 );
 
 let temperatura = 18.789
 lcd.beginSync();
-lcd.createCharSync( 0,[ 0x1B,0x15,0x0E,0x1B,0x15,0x1B,0x15,0x0E] ).createCharSync( 1,[ 0x0C,0x12,0x12,0x0C,0x00,0x00,0x00,0x00] );
+lcd.createCharSync( 0,[ 0x1B,0x15,0x0E,0x1B,0x15,0x1B,0x15,0x0E] ).createCharSync( 1,[ 0x0C,0x12,0x12,0x0C,0x00,0x00,0x00,0x00]).createCharSync( 2,[ 0x00,0x0a,0x0a,0x0a,0x1f,0x0e,0x04,0x04] );
 //lcd.createCharSync( 0,[ 0x00,0x0A,0x0A,0x1F,0x0E,0x04,0x04,0x04] )
 //const spawn = require('child_process').spawn
 
@@ -34,7 +34,7 @@ setInterval( ()=>{
 
     compararSegundos = (horas,minutos) => {
         if(fecha.getSeconds()%2==0){
-            lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas} ${minutos} `);
+            lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas} ${minutos}    ${LCD.getChar(2)}`);
         } else {
             lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas}:${minutos} `);
         }
