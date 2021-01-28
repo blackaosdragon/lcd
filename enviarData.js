@@ -9,7 +9,7 @@ usonic.init( err=>{
     if(err){
         console.log(err)
     } else {
-        let ultrasonic = usonic.createSensor(24,30,450);
+        let ultrasonic = usonic.createSensor(23,24,450);
         let distancia = ultrasonic();
         console.log(distancia);
     
