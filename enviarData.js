@@ -25,7 +25,7 @@ setInterval( ()=>{
     let fecha = new Date();
     let mes = fecha.getMonth() + 1;
 
-    compararMinutos = horas,id => {
+    compararMinutos = (horas,id) => {
         if(fecha.getMinutes()<10){
             compararSegundos(horas,`0${fecha.getMinutes()}`,id);
         } else {
