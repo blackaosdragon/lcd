@@ -67,7 +67,7 @@ setInterval( ()=>{
     }
     
     
-    
+    wifisignal();
     sensor.temperature('28-011913ff6583',(err,temp)=>{
         if(err){
             console.log(err)
