@@ -34,7 +34,7 @@ setInterval( ()=>{
 
     compararSegundos = (horas,minutos) => {
         if(fecha.getSeconds()%2==0){
-            lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas} ${minutos}   ${LCD.getChar(4)} ${LCD.getChar(2)}`);
+            lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas} ${minutos}  ${LCD.getChar(4)} ${LCD.getChar(2)}`);
         } else {
             lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas}:${minutos} `);
         }
