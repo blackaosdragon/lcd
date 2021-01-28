@@ -9,7 +9,10 @@ usonic.init( err=>{
     if(err){
         console.log(err)
     } else {
-        let ultrasonic = usonic.createSensor(24,30,450);        
+        let ultrasonic = usonic.createSensor(24,30,450);
+        let distancia = ultrasonic();
+        console.log(distancia);
+    
     }
 })
 
@@ -34,9 +37,6 @@ setInterval( ()=>{
     let fecha = new Date();
     let mes = fecha.getMonth() + 1;
     
-    let distancia = ultrasonic();
-    console.log(distancia);
-
     compararMinutos = (horas,id) => {
         if(fecha.getMinutes()<10){
             compararSegundos(horas,`0${fecha.getMinutes()}`,id);
