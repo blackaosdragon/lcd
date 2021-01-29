@@ -11,6 +11,7 @@ const trigger = new Gpio(23, {mode: Gpio.OUTPUT});
 trigger.digitalWrite(0);
 
 const watchHCSR04 = () => {
+    console.log("esta entrando a la funcion?")
     let startTick;
   
     echo.on('alert', (level, tick) => {
