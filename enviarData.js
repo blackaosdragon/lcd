@@ -4,7 +4,7 @@ const LCD = require('raspberrypi-liquid-crystal');
 const https = require('https');
 const lcd = new LCD( 1, 0x27, 20, 4 );
 const fetch = require('node-fetch');
-let sensor;
+let valor;
 
 let payload;
 const httpsAgent = new https.Agent({
@@ -77,7 +77,7 @@ setInterval( ()=>{
             console.log(err)
             //lcd.printLineSync(2, `T = Error`)
         } else {
-            sensor = temp;
+            valor = temp;
             lcd.printLineSync(2,`T = ${temp}${LCD.getChar(1)}C  `,);
             payload = {
                 id: 5,
@@ -104,6 +104,6 @@ setInterval( ()=>{
         }
 
     })
-    console.log(sensor);
+    console.log(valor);
     
 },1000);
