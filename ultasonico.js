@@ -22,9 +22,10 @@ const watchHCSR04 = () => {
   });
 };
 
-watchHCSR04();
+
 
 // Trigger a distance measurement once per second
 setInterval(() => {
   trigger.trigger(10, 1); // Set trigger high for 10 microseconds
+  watchHCSR04();
 }, 1000);
