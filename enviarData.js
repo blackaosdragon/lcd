@@ -80,7 +80,7 @@ setInterval( ()=>{
             const httpsAgent = new https.Agent({
                 rejectUnauthorized: false,
             })
-            fetch('https://instrumentacionline.ddns.net:5002/temperatura',{
+            fetch('https://instrumentacionline.ddns.net:5002/recepcion',{
             method: 'POST',
             body: JSON.stringify(payload),
             headers:{
