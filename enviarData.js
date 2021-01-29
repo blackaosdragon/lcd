@@ -2,29 +2,7 @@ const redes = require('node-wifi-scanner');
 const sensor = require('ds18b20');
 const LCD = require('raspberrypi-liquid-crystal');
 const lcd = new LCD( 1, 0x27, 20, 4 );
-const Gpio = require('pigpio').Gpio;
 
-const MICROSECDONDS_PER_CM = 1e6/34321;
-const echo = new Gpio(24, {mode: Gpio.INPUT, alert: true});
-const trigger = new Gpio(23, {mode: Gpio.OUTPUT});
-
-trigger.digitalWrite(0);
-
-const watchHCSR04 = () => {
-    console.log("esta entrando a la funcion?")
-    let startTick;
-  
-    echo.on('alert', (level, tick) => {
-      if (level == 1) {
-        startTick = tick;
-      } else {
-        const endTick = tick;
-        const diff = (endTick >> 0) - (startTick >> 0); // Unsigned 32 bit arithmetic
-        console.log(diff / 2 / MICROSECDONDS_PER_CM);
-      }
-    });
-  };
-watchHCSR04();
 /*
   
   
@@ -113,7 +91,7 @@ setInterval( ()=>{
         }
 
     })
-    trigger.trigger(10, 1);
+    
 },1000);
 //////////////////////////////////////
 /*
