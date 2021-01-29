@@ -104,6 +104,19 @@ setInterval( ()=>{
         }
 
     })
-    console.log(valor);
+    fetch('https://instrumentacionline.ddns.net:5002/recepcion',{
+        method: 'POST',
+        body: JSON.stringify(payload),
+        headers:{
+            'Content-Type': 'application/json' 
+            },
+        agent: httpsAgent
+    }).then(response=>{
+        return response.json();
+    }).then( data => {
+        console.log(data)
+    }).catch( err => {
+        console.log(err)
+    })
     
 },1000);
