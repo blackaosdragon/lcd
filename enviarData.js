@@ -10,9 +10,6 @@ const trigger = new Gpio(23, {mode: Gpio.OUTPUT});
 
 trigger.digitalWrite(0);
 
-
-/*
-
 const watchHCSR04 = () => {
     let startTick;
   
@@ -26,12 +23,13 @@ const watchHCSR04 = () => {
       }
     });
   };
+watchHCSR04();
+/*
   
-  watchHCSR04();
   
   // Trigger a distance measurement once per second
   setInterval(() => {
-    trigger.trigger(10, 1); // Set trigger high for 10 microseconds
+     // Set trigger high for 10 microseconds
   }, 1000);
 
 let temperatura = 18.789
@@ -114,6 +112,7 @@ setInterval( ()=>{
         }
 
     })
+    trigger.trigger(10, 1);
 },1000);
 //////////////////////////////////////
 /*
