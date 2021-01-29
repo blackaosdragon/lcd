@@ -3,15 +3,15 @@ const sensor = require('ds18b20');
 const LCD = require('raspberrypi-liquid-crystal');
 const lcd = new LCD( 1, 0x27, 20, 4 );
 const Gpio = require('pigpio').Gpio;
-const trigger = new Gpio(23, {mode: Gpio.OUTPUT});
-trigger.digitalWrite(0);
-/*
 
 const MICROSECDONDS_PER_CM = 1e6/34321;
-
 const echo = new Gpio(24, {mode: Gpio.INPUT, alert: true});
+const trigger = new Gpio(23, {mode: Gpio.OUTPUT});
+
+trigger.digitalWrite(0);
 
 
+/*
 
 const watchHCSR04 = () => {
     let startTick;
@@ -108,7 +108,7 @@ setInterval( ()=>{
     sensor.temperature('28-011913ff6583',(err,temp)=>{
         if(err){
             console.log(err)
-            lcd.printLineSync(2, `T = Error`)
+            //lcd.printLineSync(2, `T = Error`)
         } else {
             lcd.printLineSync(2,`T = ${temp}${LCD.getChar(1)}C  `,);
         }
