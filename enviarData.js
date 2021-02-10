@@ -15,7 +15,7 @@ let serie ;
 let capacidad;
 let especial; 'Sensor de ambiente'
 
-let registrar = 'https://instrumentacionline.ddns.net/singin'
+let registrar = 'https://instrumentacionline.ddns.net:5002/singin'
 
 let payload;
 const httpsAgent = new https.Agent({
@@ -45,6 +45,7 @@ let update = {
     capacidad: capacidad,
     especial: especial
 }
+console.log("Se enviara la data de registro");
 fetch(registrar,{
     method: 'POST',
     body: JSON.stringify(update),
