@@ -4,6 +4,8 @@ const LCD = require('raspberrypi-liquid-crystal');
 const https = require('https');
 const lcd = new LCD( 1, 0x27, 20, 4 );
 const fetch = require('node-fetch');
+
+let registro;
 let valor;
 //////////////Archivo de configuracion de cada sensor diferente/////////////////
 let id = 6;
@@ -141,7 +143,9 @@ setInterval( ()=>{
 
 
 console.log("Se enviara la data de registro");
-fetch(registrar,{
+
+function registrar(){
+    fetch(registrar,{
     method: 'POST',
     body: JSON.stringify(update),
     headers:{
@@ -170,11 +174,13 @@ fetch(registrar,{
             })
             console.log(valor)    
         }, 10000);
-        
+        clearInterval(re)
 
     } else {
         console.log("No se ha podido registrar el sensor")
     }
-}).catch( err => {
-    console.log(err);
-})
+    }).catch( err => {
+        console.log(err);
+    })
+}
+registro = setInterval(registrar,10000)
