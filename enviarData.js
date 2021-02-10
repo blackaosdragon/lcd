@@ -174,7 +174,7 @@ function activar(){
             })
             console.log(valor)    
         }, 10000);
-        clearInterval(re)
+        clearInterval(registro)
 
     } else {
         console.log("No se ha podido registrar el sensor")
