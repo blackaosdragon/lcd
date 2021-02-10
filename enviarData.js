@@ -23,16 +23,6 @@ const httpsAgent = new https.Agent({
 })
 lcd.beginSync();
 lcd.createCharSync( 0,[ 0x1B,0x15,0x0E,0x1B,0x15,0x1B,0x15,0x0E] ).createCharSync( 1,[ 0x0C,0x12,0x12,0x0C,0x00,0x00,0x00,0x00]).createCharSync( 2,[ 0x00,0x0a,0x0a,0x0a,0x1f,0x0e,0x04,0x04] ).createCharSync( 3,[ 0xa,0xa,0xa,0x1f,0xe,0x4,0x4,0x0] ).createCharSync( 4,[ 0x1,0x1,0x3,0x3,0x7,0x7,0xf,0x1f]).createCharSync( 5,[0x0,0xd,0x11,0x11,0xd,0x11,0x10,0xd]);
-/*
-sensor.sensors( (err,ids) => {
-    if(err){
-
-    } else{
-        //console.log(ids)
-    }
-    
-})
-*/
 
 lcd.clearSync();
 let update = {
@@ -45,21 +35,7 @@ let update = {
     capacidad: capacidad,
     especial: especial
 }
-console.log("Se enviara la data de registro");
-fetch(registrar,{
-    method: 'POST',
-    body: JSON.stringify(update),
-    headers:{
-        'Content-Type': 'application/json' 
-    },
-    agent: httpsAgent
-}).then( respuesta => {
-    return respuesta.json()
-}).then( data => {
-    console.log(data)
-}).catch( err => {
-    console.log(err);
-})
+
 setInterval( ()=>{
     let fecha = new Date();
     let mes = fecha.getMonth() + 1;
@@ -145,20 +121,60 @@ setInterval( ()=>{
     */
     
 },1000);
-setInterval(() => {
-    fetch('https://instrumentacionline.ddns.net:5002/recepcion',{
-        method: 'POST',
-        body: JSON.stringify(payload),
-        headers:{
-            'Content-Type': 'application/json' 
-            },
-        agent: httpsAgent
-    }).then(response=>{
-        return response.json();
-    }).then( data => {
+// let senData = setInterval(() => {
+//     fetch('https://instrumentacionline.ddns.net:5002/recepcion',{
+//         method: 'POST',
+//         body: JSON.stringify(payload),
+//         headers:{
+//             'Content-Type': 'application/json' 
+//             },
+//         agent: httpsAgent
+//     }).then(response=>{
+//         return response.json();
+//     }).then( data => {
+//         console.log(data)
+//     }).catch( err => {
+//         console.log(err)
+//     })
+//     console.log(valor)    
+// }, 10000);
+
+
+console.log("Se enviara la data de registro");
+fetch(registrar,{
+    method: 'POST',
+    body: JSON.stringify(update),
+    headers:{
+        'Content-Type': 'application/json' 
+    },
+    agent: httpsAgent
+}).then( respuesta => {
+    return respuesta.json()
+}).then( data => {
+    if(data.ok==1){
         console.log(data)
-    }).catch( err => {
-        console.log(err)
-    })
-    console.log(valor)    
-}, 10000);
+        let senData = setInterval(() => {
+            fetch('https://instrumentacionline.ddns.net:5002/recepcion',{
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers:{
+                    'Content-Type': 'application/json' 
+                    },
+                agent: httpsAgent
+            }).then(response=>{
+                return response.json();
+            }).then( data => {
+                console.log(data)
+            }).catch( err => {
+                console.log("No se ha podido enviar la data")
+            })
+            console.log(valor)    
+        }, 10000);
+        
+
+    } else {
+        console.log("No se ha podido registrar el sensor")
+    }
+}).catch( err => {
+    console.log(err);
+})
