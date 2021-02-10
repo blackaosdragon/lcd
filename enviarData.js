@@ -144,7 +144,7 @@ setInterval( ()=>{
 
 console.log("Se enviara la data de registro");
 
-function registrar(){
+function activar(){
     fetch(registrar,{
     method: 'POST',
     body: JSON.stringify(update),
@@ -183,4 +183,4 @@ function registrar(){
         console.log(err);
     })
 }
-registro = setInterval(registrar,10000)
+registro = setInterval(activar,10000)
