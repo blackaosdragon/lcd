@@ -94,7 +94,7 @@ setInterval( ()=>{
             valor = temp;
             lcd.printLineSync(2,`T = ${temp}${LCD.getChar(1)}C  `,);
             payload = {
-                id: 5,
+                id: id,
                 temp: temp
             }
             /*
