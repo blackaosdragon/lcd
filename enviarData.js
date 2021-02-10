@@ -5,6 +5,17 @@ const https = require('https');
 const lcd = new LCD( 1, 0x27, 20, 4 );
 const fetch = require('node-fetch');
 let valor;
+//////////////Archivo de configuracion de cada sensor diferente/////////////////
+let id = 6;
+let lugar = 'Taller'
+let ubicacion = 'Francisco Tamagno #32'
+let piso = 'PB'
+let equipo = 'Sensor DS18B20'
+let serie ;
+let capacidad;
+let especial; 'Sensor de ambiente'
+
+let registrar = 'https://instrumentacionline.ddns.net/singin'
 
 let payload;
 const httpsAgent = new https.Agent({
@@ -24,6 +35,30 @@ sensor.sensors( (err,ids) => {
 */
 
 lcd.clearSync();
+let update = {
+    id: id,
+    ubicacion: ubicacion,
+    piso: piso,
+    lugar: lugar,
+    equipo: equipo,
+    serie: serie,
+    capacidad: capacidad,
+    especial: especial
+}
+fetch(registrar,{
+    method: 'POST',
+    body: JSON.stringify(update),
+    headers:{
+        'Content-Type': 'application/json' 
+    },
+    agent: httpsAgent
+}).then( respuesta => {
+    return respuesta.json()
+}).then( data => {
+    console.log(data)
+}).catch( err => {
+    console.log(err);
+})
 setInterval( ()=>{
     let fecha = new Date();
     let mes = fecha.getMonth() + 1;
