@@ -57,8 +57,10 @@ setInterval( ()=>{
         
         if(fecha.getSeconds()%2==0){            
             lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas} ${minutos}  ${LCD.getChar(signal)} ${LCD.getChar(2)}   `);
+            console.log("señal: ",signal)
         } else {
             lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas}:${minutos}  ${LCD.getChar(signal)} ${LCD.getChar(2)}   `);
+            console.log(("señal: ",signal)
         }
     }
     compararHoras = id =>{
@@ -76,15 +78,15 @@ setInterval( ()=>{
                 
                 let signal = parseInt(red[0].rssi)
                 
-                if (signal>=-20){
+                if (signal>=-1){
                     compararHoras(3)
-                    console.log(`Señal ${signal} alta`)
+                    //console.log(`Señal 3 alta`)
                 } else if(signal<-20 && signal>=-70) {
                     compararHoras(4)
-                    console.log(`Señal ${signal} media`)
+                    //console.log(`Señal ${signal} media`)
                 } else if(signal<-70){
                     compararHoras(5)
-                    console.log(`Señal ${signal} baja`)
+                    //console.log(`Señal ${signal} baja`)
                 }
             }
 
