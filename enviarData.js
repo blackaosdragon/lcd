@@ -140,11 +140,17 @@ function activar(){
     } else if(data.ok==2) {
         console.log("El sensor ya esta registrado")
         clearInterval(registro)
+        lcd.setCursor(2,11)
+        lcd.printSync(`${LCD.getChar(7)}`)
     } else {
         console.log("Error al registrar el sensor")
+        lcd.setCursor(2,11)
+        lcd.printSync(`${LCD.getChar(8)}`)
     }
     }).catch( err => {
         console.log("No se ha podido registrar el sensor")
+        lcd.setCursor(2,11)
+        lcd.printSync(`${LCD.getChar(8)}`)
         //console.log(err);
     })
 }
