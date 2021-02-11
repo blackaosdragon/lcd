@@ -24,7 +24,7 @@ const httpsAgent = new https.Agent({
     rejectUnauthorized: false,
 })
 lcd.beginSync();
-lcd.createCharSync( 0,[ 0x1B,0x15,0x0E,0x1B,0x15,0x1B,0x15,0x0E] ).createCharSync( 1,[ 0x0C,0x12,0x12,0x0C,0x00,0x00,0x00,0x00]).createCharSync( 2,[ 0x00,0x0a,0x0a,0x0a,0x1f,0x0e,0x04,0x04] ).createCharSync( 3,[ 0xa,0xa,0xa,0x1f,0xe,0x4,0x4,0x0] ).createCharSync( 4,[ 0x1,0x1,0x3,0x3,0x7,0x7,0xf,0x1f]).createCharSync( 5,[0x0,0xd,0x11,0x11,0xd,0x11,0x10,0xd]);
+lcd.createCharSync( 0,[ 0x1B,0x15,0x0E,0x1B,0x15,0x1B,0x15,0x0E] ).createCharSync( 1,[ 0x0C,0x12,0x12,0x0C,0x00,0x00,0x00,0x00]).createCharSync( 2,[ 0x00,0x0a,0x0a,0x0a,0x1f,0x0e,0x04,0x04] ).createCharSync( 3,[ 0xa,0xa,0xa,0x1f,0xe,0x4,0x4,0x0] ).createCharSync( 4,[ 0x1,0x1,0x3,0x3,0x7,0x7,0xf,0x1f]).createCharSync( 5,[0x0,0xd,0x11,0x11,0xd,0x11,0x10,0xd]).createCharSync( 6,[	0x11,0x13,0x17,0x11,0x1d,0x19,0x11]).createCharSync( 7,[0x0,0x11,0xa,0x4,0xa,0x11,0x0]).createCharSync( 8,[0x0,0x11,0xa,0x4,0xa,0x11,0x0]);
 
 lcd.clearSync();
 let update = {
@@ -97,53 +97,10 @@ setInterval( ()=>{
                 id: id,
                 temp: temp
             }
-            /*
-            fetch('https://instrumentacionline.ddns.net:5002/recepcion',{
-            method: 'POST',
-            body: JSON.stringify(payload),
-            headers:{
-                'Content-Type': 'application/json' 
-                },
-            agent: httpsAgent
-            }).then(response=>{
-                return response.json();
-            }).then(data=>{
-                console.log(data);
-            }).catch((err)=>{
-                console.log("Error:");
-                console.log(err);
-            })*/
-            
-
         }
-
-    })
-    /*
-    
-    */
-    
+    })    
 },1000);
-// let senData = setInterval(() => {
-//     fetch('https://instrumentacionline.ddns.net:5002/recepcion',{
-//         method: 'POST',
-//         body: JSON.stringify(payload),
-//         headers:{
-//             'Content-Type': 'application/json' 
-//             },
-//         agent: httpsAgent
-//     }).then(response=>{
-//         return response.json();
-//     }).then( data => {
-//         console.log(data)
-//     }).catch( err => {
-//         console.log(err)
-//     })
-//     console.log(valor)    
-// }, 10000);
-
-
 console.log("Se enviara la data de registro");
-
 function activar(){
     fetch(registrar,{
     method: 'POST',
@@ -169,6 +126,8 @@ function activar(){
                 return response.json();
             }).then( data => {
                 console.log(data)
+                lcd.setCursor(2,11)
+                lcd.printSync(`${LCD.getChar(6)}`)
             }).catch( err => {
                 console.log("No se ha podido enviar la data")
             })
@@ -176,11 +135,15 @@ function activar(){
         }, 10000);
         clearInterval(registro)
 
+    } else if(data.ok==2) {
+        console.log("El sensor ya esta registrado")
+        clearInterval(registro)
     } else {
-        console.log("No se ha podido registrar el sensor")
+        console.log("Error al registrar el sensor")
     }
     }).catch( err => {
-        console.log(err);
+        console.log("No se ha podido registrar el sensor")
+        //console.log(err);
     })
 }
 registro = setInterval(activar,10000)
