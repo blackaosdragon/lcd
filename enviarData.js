@@ -55,8 +55,7 @@ setInterval( ()=>{
 
     compararSegundos = (horas,minutos,signal) => {
         
-        if(fecha.getSeconds()%2==0){
-            
+        if(fecha.getSeconds()%2==0){            
             lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas} ${minutos}  ${LCD.getChar(signal)} ${LCD.getChar(2)}   `);
         } else {
             lcd.printLineSync(0,`${fecha.getDate()}/${mes}/${fecha.getFullYear()} ${horas}:${minutos}  ${LCD.getChar(signal)} ${LCD.getChar(2)}   `);
@@ -79,10 +78,13 @@ setInterval( ()=>{
                 
                 if (signal>=-20){
                     compararHoras(3)
+                    console.log(`Señal ${signal} alta`)
                 } else if(signal<-20 && signal>=-70) {
                     compararHoras(4)
+                    console.log(`Señal ${signal} media`)
                 } else if(signal<-70){
                     compararHoras(5)
+                    console.log(`Señal ${signal} baja`)
                 }
             }
 
@@ -128,9 +130,15 @@ function activar(){
                     },
                 agent: httpsAgent
             }).then(response=>{
+                lcd.setCursor(2,11)
+                lcd.printSync(`${LCD.getChar(6)} `)
                 return response.json();
             }).then( data => {
-                console.log(data)
+                console.log(data.code)
+                if (data.code==1){
+                    console.log("data enviada")                    
+                }
+
                 lcd.setCursor(2,11)
                 lcd.printSync(`${LCD.getChar(6)} `)
             }).catch( err => {
