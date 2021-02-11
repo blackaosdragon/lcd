@@ -37,6 +37,9 @@ let update = {
     capacidad: capacidad,
     especial: especial
 }
+lcd.setCursor(1,9);
+lcd.printSync(`${LCD.getChar(8)} `)
+console.log("Reloj agregado")
 
 setInterval( ()=>{
     let fecha = new Date();
@@ -101,8 +104,7 @@ setInterval( ()=>{
     })    
 },1000);
 console.log("Se enviara la data de registro");
-lcd.setCursor(2,11);
-lcd.printSync(`${LCD.getChar(8)} `)
+
 
 function activar(){
     fetch(registrar,{
