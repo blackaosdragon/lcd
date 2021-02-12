@@ -37,9 +37,7 @@ let update = {
     capacidad: capacidad,
     especial: especial
 }
-lcd.setCursor(1,9);
-lcd.printSync(`${LCD.getChar(8)} `)
-console.log("Reloj agregado")
+
 
 setInterval( ()=>{
     let fecha = new Date();
@@ -132,8 +130,8 @@ function activar(){
                     },
                 agent: httpsAgent
             }).then(response=>{
-                lcd.setCursor(2,11)
-                lcd.printSync(`${LCD.getChar(6)} `)
+                //lcd.setCursor(2,11)
+                //lcd.printSync(`${LCD.getChar(6)} `)
                 return response.json();
             }).then( data => {
                 console.log(data.code)
@@ -141,12 +139,12 @@ function activar(){
                     console.log("data enviada")                    
                 }
 
-                lcd.setCursor(2,11)
-                lcd.printSync(`${LCD.getChar(6)} `)
+                //lcd.setCursor(2,11)
+                //lcd.printSync(`${LCD.getChar(6)} `)
             }).catch( err => {
                 console.log("No se ha podido enviar la data")
-                lcd.setCursor(2,11)
-                lcd.printSync(`${LCD.getChar(7)} `)
+                //lcd.setCursor(2,11)
+                //lcd.printSync(`${LCD.getChar(7)} `)
             })
             console.log(valor)    
         }, 10000);
@@ -155,17 +153,17 @@ function activar(){
     } else if(data.ok==2) {
         console.log("El sensor ya esta registrado")
         clearInterval(registro)
-        lcd.setCursor(2,11)
-        lcd.printSync(`${LCD.getChar(7)}`)
+        //lcd.setCursor(2,11)
+        //lcd.printSync(`${LCD.getChar(7)}`)
     } else {
         console.log("Error al registrar el sensor")
-        lcd.setCursor(2,11)
-        lcd.printSync(`${LCD.getChar(8)}`)
+        //lcd.setCursor(2,11)
+        //lcd.printSync(`${LCD.getChar(8)}`)
     }
     }).catch( err => {
         console.log("No se ha podido registrar el sensor")
-        lcd.setCursor(2,11)
-        lcd.printSync(`${LCD.getChar(8)}`)
+        //lcd.setCursor(2,11)
+        //lcd.printSync(`${LCD.getChar(8)}`)
         //console.log(err);
     })
 }
